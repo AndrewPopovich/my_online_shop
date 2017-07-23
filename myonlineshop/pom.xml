@@ -11,6 +11,7 @@
     <properties>
         <javaee.version>7.0</javaee.version>
         <spring.version>4.3.6.RELEASE</spring.version>
+        <jstl.version>1.2</jstl.version>
     </properties>
 
     <dependencies>
@@ -20,6 +21,13 @@
             <artifactId>javaee-api</artifactId>
             <version>${javaee.version}</version>
             <scope>provided</scope>
+        </dependency>
+
+        <!-- JSTL -->
+        <dependency>
+            <groupId>jstl</groupId>
+            <artifactId>jstl</artifactId>
+            <version>${jstl.version}</version>
         </dependency>
 
         <!-- Spring -->
