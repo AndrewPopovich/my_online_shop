@@ -1,4 +1,4 @@
-package main.java.com.myshop.myonlineshop.controller;
+package com.myshop.myonlineshop.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
