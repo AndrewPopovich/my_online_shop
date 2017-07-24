@@ -14,13 +14,13 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li>
+                <li id="about">
                     <a href="${contextRoot}/about">About</a>
                 </li>
-                <li>
-                    <a href="${contextRoot}/listProduct">View Products</a>
+                <li id="ListProduct">
+                    <a href="${contextRoot}/ListProduct">View Products</a>
                 </li>
-                <li>
+                <li id="contact">
                     <a href="${contextRoot}/contact">Contact</a>
                 </li>
             </ul>

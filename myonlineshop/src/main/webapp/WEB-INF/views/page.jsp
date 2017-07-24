@@ -20,6 +20,9 @@
 
     <title>My shop - ${title}</title>
 
+    <script>
+        window.menu = '${title}'
+    </script>
     <!-- Bootstrap Core CSS -->
     <link href="${css}/bootstrap.min.css" rel="stylesheet">
 
