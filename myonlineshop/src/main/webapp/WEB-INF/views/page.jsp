@@ -67,6 +67,9 @@
 <!-- Bootstrap Core JavaScript -->
 <script src="${js}/bootstrap.min.js"></script>
 
+<!-- Self coded JS -->
+<script src="${js}/myapp.js"></script>
+
 </body>
 
 </html>
