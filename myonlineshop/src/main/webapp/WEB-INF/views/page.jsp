@@ -8,7 +8,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Title</title>
+    <title>My online shop</title>
 </head>
 <body>
     ${contextRoot} says - ${greeting}
