@@ -18,7 +18,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Shop Homepage - Start Bootstrap Template</title>
+    <title>My shop - ${title}</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="${css}/bootstrap.min.css" rel="stylesheet">
@@ -41,8 +41,9 @@
 <%@include file="./shared/navbar.jsp" %>
 
 <!-- Page Content -->
-<%@include file="home.jsp" %>
-
+<c:if test="${userClickHome == true}">
+    <%@include file="home.jsp" %>
+</c:if>
 <!-- Footer -->
 <%@include file="./shared/footer.jsp" %>
 
