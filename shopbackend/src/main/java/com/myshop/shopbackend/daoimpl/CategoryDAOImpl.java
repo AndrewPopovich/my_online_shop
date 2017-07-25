@@ -2,10 +2,12 @@ package com.myshop.shopbackend.daoimpl;
 
 import com.myshop.shopbackend.dao.CategoryDAO;
 import com.myshop.shopbackend.dto.Category;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository("categoryDAO")
 public class CategoryDAOImpl implements CategoryDAO {
 
     private static List<Category> categories = new ArrayList<>();

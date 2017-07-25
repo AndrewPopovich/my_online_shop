@@ -19,8 +19,7 @@
         <!-- Link our backend project -->
         <dependency>
             <groupId>com.myshop</groupId>
-            <artifactId>myshopbackend</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <artifactId>shopbackend</artifactId>
         </dependency>
 
         <!-- Java EE API -->
