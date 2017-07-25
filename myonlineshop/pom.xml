@@ -20,6 +20,7 @@
         <dependency>
             <groupId>com.myshop</groupId>
             <artifactId>shopbackend</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
 
         <!-- Java EE API -->
