@@ -56,7 +56,7 @@ public class PageController {
         return mv;
     }
 
-    @RequestMapping(value = "/show/all/{id}/products")
+    @RequestMapping(value = "/show/category/{id}/products")
     public ModelAndView showCategoriesProducts(@PathVariable(value = "id") int id) {
         ModelAndView mv = new ModelAndView("page");
 
