@@ -45,6 +45,17 @@ public class PageController {
         return mv;
     }
 
+    @RequestMapping(value = "/show/all/products")
+    public ModelAndView showAllProducts() {
+        ModelAndView mv = new ModelAndView("page");
+
+        mv.addObject("title", "All products");
+        mv.addObject("categories", categoryDAO.list());
+        mv.addObject("userClickAllProducts", true);
+
+        return mv;
+    }
+
     @RequestMapping(value = "/show/all/{id}/products")
     public ModelAndView showCategoriesProducts(@PathVariable(value = "id") int id) {
         ModelAndView mv = new ModelAndView("page");
