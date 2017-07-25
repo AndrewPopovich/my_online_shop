@@ -27,7 +27,7 @@
     <link href="${css}/bootstrap.min.css" rel="stylesheet">
 
     <!-- Bootstrap Solar theme CSS -->
-    <link href="${css}/bootstrap-solar-theme.css" rel="stylesheet">
+    <link href="${css}/bootstrap-superhero-theme.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="${css}/myapp.css" rel="stylesheet">
