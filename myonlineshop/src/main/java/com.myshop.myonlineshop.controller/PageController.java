@@ -1,8 +1,10 @@
 package com.myshop.myonlineshop.controller;
 
 import com.myshop.shopbackend.dao.CategoryDAO;
+import com.myshop.shopbackend.dto.Category;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -17,7 +19,6 @@ public class PageController {
         ModelAndView mv = new ModelAndView("page");
 
         mv.addObject("categories", categoryDAO.list());
-
         mv.addObject("title", "Home");
         mv.addObject("userClickHome", true);
 
@@ -43,4 +44,19 @@ public class PageController {
 
         return mv;
     }
+
+    @RequestMapping(value = "/show/all/{id}/products")
+    public ModelAndView showCategoriesProducts(@PathVariable(value = "id") int id) {
+        ModelAndView mv = new ModelAndView("page");
+
+        Category category = categoryDAO.get(id);
+
+        mv.addObject("title", "All products");
+        mv.addObject("categories", categoryDAO.list());
+        mv.addObject("userClickAllProducts", true);
+
+        return mv;
+    }
+
+
 }
