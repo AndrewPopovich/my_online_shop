@@ -40,35 +40,42 @@
 
 <body>
 
-<!-- Navigation -->
-<%@include file="./shared/navbar.jsp" %>
+<div class="wrapper">
 
-<!-- Page Content -->
-<c:if test="${userClickHome == true}">
-    <%@include file="home.jsp" %>
-</c:if>
+    <!-- Navigation -->
+    <%@include file="./shared/navbar.jsp" %>
 
-<!-- Load only when user click about -->
-<c:if test="${userClickAbout == true}">
-    <%@include file="about.jsp" %>
-</c:if>
+    <!-- Page Content -->
 
-<!-- Load only when user click contact -->
-<c:if test="${userClickContact == true}">
-    <%@include file="contact.jsp" %>
-</c:if>
+    <div class="content">
+        <c:if test="${userClickHome == true}">
+            <%@include file="home.jsp" %>
+        </c:if>
 
-<!-- Footer -->
-<%@include file="./shared/footer.jsp" %>
+        <!-- Load only when user click about -->
+        <c:if test="${userClickAbout == true}">
+            <%@include file="about.jsp" %>
+        </c:if>
 
-<!-- jQuery -->
-<script src="${js}/jquery.js"></script>
+        <!-- Load only when user click contact -->
+        <c:if test="${userClickContact == true}">
+            <%@include file="contact.jsp" %>
+        </c:if>
+    </div>
 
-<!-- Bootstrap Core JavaScript -->
-<script src="${js}/bootstrap.min.js"></script>
+    <!-- Footer -->
+    <%@include file="./shared/footer.jsp" %>
 
-<!-- Self coded JS -->
-<script src="${js}/myapp.js"></script>
+    <!-- jQuery -->
+    <script src="${js}/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="${js}/bootstrap.min.js"></script>
+
+    <!-- Self coded JS -->
+    <script src="${js}/myapp.js"></script>
+
+</div>
 
 </body>
 
