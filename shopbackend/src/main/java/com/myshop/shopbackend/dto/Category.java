@@ -20,7 +20,7 @@ public class Category {
     @Column(name = "image_url")
     private String imageURL;
 
-    @Column(name = "iis_active")
+    @Column(name = "is_active")
     private boolean active = true;
 
     public int getId() {

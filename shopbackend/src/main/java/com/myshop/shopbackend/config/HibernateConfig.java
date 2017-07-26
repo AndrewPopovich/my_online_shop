@@ -17,7 +17,7 @@ import java.util.Properties;
 @EnableTransactionManagement
 public class HibernateConfig {
 
-    private static final String DATABASE_URL = "jdbc:h2:tcp://localhost/~/myshop";
+    private static final String DATABASE_URL = "jdbc:h2:tcp://127.0.0.1/~/myshop";
 
     private static final String DATABASE_DRIVER = "org.h2.Driver";
 
