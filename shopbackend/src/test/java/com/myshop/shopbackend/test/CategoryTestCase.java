@@ -44,6 +44,7 @@ public class CategoryTestCase {
     public void testUpdateCategory() {
         category = new Category();
 
+        category.setId(2);
         category.setName("Laptop");
         category.setDescription("Some description for laptop...");
         category.setImageURL("Cat_3.png");
@@ -55,6 +56,7 @@ public class CategoryTestCase {
     public void testDeleteCategory() {
         category = new Category();
 
+        category.setId(1);
         category.setName("Television");
         category.setDescription("Some description for television...");
         category.setImageURL("Cat_1.png");
