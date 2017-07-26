@@ -35,8 +35,13 @@ public class CategoryTestCase {
         Assert.assertEquals("Successfully added category!", true, categoryDAO.add(category));
     }*/
 
-    @Test
+    /*@Test
     public void testGetCategory() {
         Assert.assertEquals("Successfully get category!", "Television", categoryDAO.get(1).getName());
+    }*/
+
+    @Test
+    public void testUpdateCategory() {
+        Assert.assertEquals("Successfully update category!", true, categoryDAO.update(category));
     }
 }
