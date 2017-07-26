@@ -41,14 +41,9 @@ public class CategoryDAOImpl implements CategoryDAO {
 
     @Override
     public boolean delete(Category category) {
-        try {
-            sessionFactory.getCurrentSession().delete(category);
-            category.setActive(false);
-            return true;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }
+        category.setActive(false);
+
+        return update(category);
     }
 
     @Override
