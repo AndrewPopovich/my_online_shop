@@ -1,8 +1,6 @@
 package com.myshop.shopbackend.test;
 
-import com.myshop.shopbackend.dao.CategoryDAO;
 import com.myshop.shopbackend.dao.ProductDAO;
-import com.myshop.shopbackend.daoimpl.ProductDAOImpl;
 import com.myshop.shopbackend.dto.Product;
 import org.junit.Assert;
 import org.junit.BeforeClass;
