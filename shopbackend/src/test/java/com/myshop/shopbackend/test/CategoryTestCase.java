@@ -42,11 +42,23 @@ public class CategoryTestCase {
 
     @Test
     public void testUpdateCategory() {
+        category = new Category();
+
+        category.setName("Laptop");
+        category.setDescription("Some description for laptop...");
+        category.setImageURL("Cat_3.png");
+
         Assert.assertEquals("Successfully update category!", true, categoryDAO.update(category));
     }
 
     @Test
     public void testDeleteCategory() {
+        category = new Category();
+
+        category.setName("Television");
+        category.setDescription("Some description for television...");
+        category.setImageURL("Cat_1.png");
+
         Assert.assertEquals("Successfully delete category!", true, categoryDAO.delete(category));
     }
 }
