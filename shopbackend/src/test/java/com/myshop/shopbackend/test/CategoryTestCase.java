@@ -55,4 +55,9 @@ public class CategoryTestCase {
 
         Assert.assertEquals("Successfully delete category!", true, categoryDAO.delete(category));
     }
+
+    @Test
+    public void testListCategory() {
+        Assert.assertEquals("Successfully delete category!", 2, categoryDAO.list().size());
+    }
 }

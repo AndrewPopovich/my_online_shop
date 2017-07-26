@@ -3,6 +3,7 @@ package com.myshop.shopbackend.daoimpl;
 import com.myshop.shopbackend.dao.CategoryDAO;
 import com.myshop.shopbackend.dto.Category;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -48,7 +49,12 @@ public class CategoryDAOImpl implements CategoryDAO {
 
     @Override
     public List<Category> list() {
-        return null;
+        String selectActiveCategory = "FROM Category WHERE active = :active";
+
+        Query query = sessionFactory.getCurrentSession().createQuery(selectActiveCategory);
+        query.setParameter("active", true);
+
+        return query.getResultList();
     }
 
     @Override
