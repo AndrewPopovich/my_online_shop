@@ -32,12 +32,12 @@ public class CategoryTestCase {
         category.setDescription("Some description for TV...");
         category.setImageURL("Cat_2.png");
 
-        Assert.assertEquals("Successfully added category!", true, categoryDAO.add(category));
+        Assert.assertEquals("Something wrong!", true, categoryDAO.add(category));
     }
 
     @Test
     public void testGetCategory() {
-        Assert.assertEquals("Successfully get category!", "Television", categoryDAO.get(1).getName());
+        Assert.assertEquals("Something wrong!", "Television", categoryDAO.get(1).getName());
     }
 
     @Test
@@ -46,18 +46,18 @@ public class CategoryTestCase {
 
         category.setName("MacBook");
 
-        Assert.assertEquals("Successfully update category!", true, categoryDAO.update(category));
+        Assert.assertEquals("Something wrong!", true, categoryDAO.update(category));
     }
 
     @Test
     public void testDeleteCategory() {
         category = categoryDAO.get(3);
 
-        Assert.assertEquals("Successfully delete category!", true, categoryDAO.delete(category));
+        Assert.assertEquals("Something wrong!", true, categoryDAO.delete(category));
     }
 
     @Test
     public void testListCategory() {
-        Assert.assertEquals("Successfully fetch active categories!", 2, categoryDAO.list().size());
+        Assert.assertEquals("Something wrong!", 2, categoryDAO.list().size());
     }*/
 }
