@@ -44,4 +44,9 @@ public class CategoryTestCase {
     public void testUpdateCategory() {
         Assert.assertEquals("Successfully update category!", true, categoryDAO.update(category));
     }
+
+    @Test
+    public void testDeleteCategory() {
+        Assert.assertEquals("Successfully delete category!", true, categoryDAO.delete(category));
+    }
 }
