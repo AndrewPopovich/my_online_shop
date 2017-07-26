@@ -16,7 +16,7 @@ public class CategoryTestCase {
 
     private Category category;
 
-    @BeforeClass
+    /*@BeforeClass
     public static void init() {
         context = new AnnotationConfigApplicationContext();
         context.scan("com.myshop.shopbackend");
@@ -58,6 +58,6 @@ public class CategoryTestCase {
 
     @Test
     public void testListCategory() {
-        Assert.assertEquals("Successfully delete category!", 2, categoryDAO.list().size());
-    }
+        Assert.assertEquals("Successfully fetch active categories!", 2, categoryDAO.list().size());
+    }*/
 }
