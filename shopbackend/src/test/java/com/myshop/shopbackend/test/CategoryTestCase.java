@@ -1,6 +1,7 @@
 package com.myshop.shopbackend.test;
 
 import com.myshop.shopbackend.dao.CategoryDAO;
+import com.myshop.shopbackend.daoimpl.CategoryDAOImpl;
 import com.myshop.shopbackend.dto.Category;
 import org.junit.Assert;
 import org.junit.BeforeClass;
@@ -24,7 +25,7 @@ public class CategoryTestCase {
         categoryDAO = (CategoryDAO) context.getBean("categoryDAO");
     }
 
-    @Test
+    /*@Test
     public void testAddCategory() {
         category = new Category();
         category.setName("Phone");
@@ -32,5 +33,10 @@ public class CategoryTestCase {
         category.setImageURL("Cat_2.png");
 
         Assert.assertEquals("Successfully added category!", true, categoryDAO.add(category));
+    }*/
+
+    @Test
+    public void testGetCategory() {
+        Assert.assertEquals("Successfully get category!", "Television", categoryDAO.get(1).getName());
     }
 }
