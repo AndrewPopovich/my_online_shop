@@ -6,11 +6,11 @@ import java.util.List;
 
 public interface ProductDAO {
 
-    boolean add(Product category);
+    boolean add(Product product);
 
-    boolean update(Product category);
+    boolean update(Product product);
 
-    boolean delete(Product category);
+    boolean delete(Product product);
 
     List<Product> list();
 
