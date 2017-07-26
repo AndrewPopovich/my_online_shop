@@ -19,7 +19,7 @@ public interface ProductDAO {
 
     List<Product> listActiveProducts();
 
-    List<Product> listActiveProductsByCategory();
+    List<Product> listActiveProductsByCategory(int categoryId);
 
-    List<Product> getLatestActiveProducts();
+    List<Product> getLatestActiveProducts(int count);
 }
