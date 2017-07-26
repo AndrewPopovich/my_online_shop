@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.UUID;
 
 public class Product {
 
@@ -37,6 +38,10 @@ public class Product {
 
     private int views;
 
+    public Product() {
+        code = "PRD" + UUID.randomUUID().toString().substring(26).toUpperCase();
+    }
+
     public int getId() {
         return id;
     }
@@ -47,10 +52,6 @@ public class Product {
 
     public String getCode() {
         return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
     }
 
     public String getName() {
