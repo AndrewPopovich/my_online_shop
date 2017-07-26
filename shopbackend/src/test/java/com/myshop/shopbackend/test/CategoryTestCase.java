@@ -27,9 +27,9 @@ public class CategoryTestCase {
     @Test
     public void testAddCategory() {
         category = new Category();
-        category.setName("Television");
-        category.setDescription("Some description for television...");
-        category.setImageURL("Cat_1.png");
+        category.setName("Phone");
+        category.setDescription("Some description for phone...");
+        category.setImageURL("Cat_2.png");
 
         Assert.assertEquals("Successfully added category!", true, categoryDAO.add(category));
     }
