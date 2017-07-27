@@ -38,7 +38,7 @@
             <p>${product.description}</p>
             <hr/>
 
-            <h4>Price: <strong>&#8372; ${product.unitprice}/-</strong></h4>
+            <h4>Price: <strong>&#8372; ${product.unitPrice}/-</strong></h4>
             <hr/>
 
             <h6>Quantity ${product.quantity}</h6>

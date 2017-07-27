@@ -75,9 +75,9 @@ public class PageController {
         return mv;
     }
 
-    @RequestMapping("/show/{id}/product")
-    public ModelAndView showSingleProduct(@PathVariable int id) {
-        ModelAndView mv = new ModelAndView();
+    @RequestMapping(value = "/show/{id}/product")
+    public ModelAndView showSingleProduct(@PathVariable(value = "id") int id) {
+        ModelAndView mv = new ModelAndView("page");
 
         Product product = productDAO.get(id);
 
