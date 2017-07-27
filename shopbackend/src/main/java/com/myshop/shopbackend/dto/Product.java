@@ -1,5 +1,7 @@
 package com.myshop.shopbackend.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,6 +22,7 @@ public class Product {
 
     private String brand;
 
+    @JsonIgnore
     private String description;
 
     @Column(name = "unit_price")
@@ -28,12 +31,20 @@ public class Product {
     private int quantity;
 
     @Column(name = "is_active")
+    @JsonIgnore
     private boolean active = true;
 
     @Column(name = "category_id")
+    @JsonIgnore
     private int categoryId;
 
+    public void setCode(String code) {
+        this.code = code;
+    }
+
     @Column(name = "supplier_id")
+    @JsonIgnore
+
     private int supplierId;
 
     private int purchases;
