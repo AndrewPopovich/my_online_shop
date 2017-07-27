@@ -70,6 +70,11 @@
             <%@include file="contact.jsp" %>
         </c:if>
 
+        <!-- Load only when user click single product -->
+        <c:if test="${userClickShowProduct == true}">
+            <%@include file="singeProduct.jsp" %>
+        </c:if>
+
         <!-- Load only when user click all products or category products -->
         <c:if test="${userClickAllProducts == true or userClickCategoryProducts == true}">
             <%@include file="listProducts.jsp" %>
