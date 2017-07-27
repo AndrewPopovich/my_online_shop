@@ -28,7 +28,7 @@ public class Product {
     private int quantity;
 
     @Column(name = "is_active")
-    private boolean isActive = true;
+    private boolean active = true;
 
     @Column(name = "category_id")
     private int categoryId;
@@ -97,11 +97,11 @@ public class Product {
     }
 
     public boolean isActive() {
-        return isActive;
+        return active;
     }
 
     public void setActive(boolean active) {
-        isActive = active;
+        active = active;
     }
 
     public int getCategoryId() {

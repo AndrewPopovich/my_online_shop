@@ -17,7 +17,7 @@ public interface ProductDAO {
     Product get(int id);
 
 
-    List<Product> listActiveProducts();
+    List listActiveProducts();
 
     List<Product> listActiveProductsByCategory(int categoryId);
 
