@@ -75,7 +75,7 @@ public class PageController {
         return mv;
     }
 
-    @RequestMapping("show/{id}/product")
+    @RequestMapping("/show/{id}/product")
     public ModelAndView showSingleProduct(@PathVariable int id) {
         ModelAndView mv = new ModelAndView();
 
@@ -84,7 +84,9 @@ public class PageController {
         product.setViews(product.getViews() + 1);
         productDAO.update(product);
 
-
+        mv.addObject("title", product.getName());
+        mv.addObject("product", product);
+        mv.addObject("userClickShowProduct", true);
 
         return mv;
     }
