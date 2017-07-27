@@ -28,4 +28,27 @@ $(function () {
             $table = window.contextRoot + '/json/data/category/'+ window.categoryId +'/products';
         }
     }
+
+    $table.DataTable({
+        lengthMenu: [[3, 5, 10, -1], ['3 records', '5 records', '10 records', 'all']],
+        pageLength: 5,
+        ajax: {
+            url: jsonUrl,
+            dataSrc: ''
+        },
+        columns: [
+            {
+                data: 'name'
+            },
+            {
+                data: 'brand'
+            },
+            {
+                data: 'unitPrice'
+            },
+            {
+                data: 'quantity'
+            }
+        ]
+    })
 });

@@ -44,8 +44,10 @@
                         <table id="productListTable" class="table table-striped table-borderd">
                             <thead>
                             <tr>
-                                <th>ID</th>
                                 <th>Name</th>
+                                <th>Brand</th>
+                                <th>Unit price</th>
+                                <th>Quantity</th>
                             </tr>
                             </thead>
                         </table>
