@@ -27,6 +27,20 @@
                         </ol>
                     </c:if>
                 </div>
+
+                <div class="row">
+
+                    <div class="col-xs-12">
+                        <table id="productListTable" class="table table-striped table-borderd">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                            </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
