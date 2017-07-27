@@ -76,3 +76,8 @@ footer {
     bottom: 15px;
     height: 60px;
 }
+
+.dataTableImg {
+    width: 150px;
+    height: 100px;
+}

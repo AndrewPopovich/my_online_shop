@@ -1,7 +1,9 @@
 package com.myshop.myonlineshop.controller;
 
 import com.myshop.shopbackend.dao.CategoryDAO;
+import com.myshop.shopbackend.dao.ProductDAO;
 import com.myshop.shopbackend.dto.Category;
+import com.myshop.shopbackend.dto.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,6 +15,9 @@ public class PageController {
 
     @Autowired
     private CategoryDAO categoryDAO;
+
+    @Autowired
+    private ProductDAO productDAO;
 
     @RequestMapping(value = {"/", "/home", "/index"})
     public ModelAndView index() {
@@ -70,5 +75,13 @@ public class PageController {
         return mv;
     }
 
+    @RequestMapping("show/{id}/product")
+    public ModelAndView showSingleProduct(@PathVariable int id) {
+        ModelAndView mv = new ModelAndView();
 
+        Product product = productDAO.get(id);
+
+
+        return mv;
+    }
 }
