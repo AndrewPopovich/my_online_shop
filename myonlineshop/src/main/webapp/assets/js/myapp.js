@@ -54,6 +54,7 @@ $(function () {
             },
             {
                 data: 'id',
+                bSortable: false,
                 mRender: function (data, type, row) {
                     var str = '';
                     str += '<a href="' + window.contextRoot + '/show/' + data + '/product" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span></a>';
