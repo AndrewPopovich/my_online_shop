@@ -32,18 +32,18 @@
         <%-- Display product description --%>
         <div class="col-xs-12 col-sm-8">
 
-            <h3>${product.name}}</h3>
+            <h3>${product.name}</h3>
             <hr/>
 
             <p>${product.description}</p>
             <hr/>
 
-            <h4>Price: <strong>&#8372; ${product.unitPrice}/-</strong></h4>
+            <h4>Price: <strong>&#8372; ${product.unitPrice}</strong></h4>
             <hr/>
 
             <h6>Quantity ${product.quantity}</h6>
             <a href="${contextRoot}/cart/add/${product.id}/product" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart"></span>Add to Cart</a>
-            <a href="${contextRoot}/show/all/products" class="btn btn-success">Back</a>
+            <a href="${contextRoot}/show/all/products" class="btn btn-primary">Back</a>
 
         </div>
 
