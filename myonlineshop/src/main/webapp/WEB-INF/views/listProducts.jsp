@@ -48,8 +48,19 @@
                                 <th>Brand</th>
                                 <th>Unit price</th>
                                 <th>Quantity</th>
+                                <th></th>
                             </tr>
                             </thead>
+
+                            <tfoot>
+                            <tr>
+                                <th>Name</th>
+                                <th>Brand</th>
+                                <th>Unit price</th>
+                                <th>Quantity</th>
+                                <th></th>
+                            </tr>
+                            </tfoot>
                         </table>
                     </div>
                 </div>

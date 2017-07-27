@@ -19,13 +19,13 @@ $(function () {
 
     var $table = $('#productListTable');
 
-    if($table.length) {
+    if ($table.length) {
         var jsonUrl = '';
 
         if (window.categoryId == '') {
-            $table = window.contextRoot + '/json/data/all/products';
+            jsonUrl = window.contextRoot + '/json/data/all/products';
         } else {
-            $table = window.contextRoot + '/json/data/category/'+ window.categoryId +'/products';
+            jsonUrl = window.contextRoot + '/json/data/category/' + window.categoryId + '/products';
         }
     }
 
@@ -44,10 +44,23 @@ $(function () {
                 data: 'brand'
             },
             {
-                data: 'unitPrice'
+                data: 'unitPrice',
+                mRender: function (data, type, row) {
+                    return '&#8372; ' + data
+                }
             },
             {
                 data: 'quantity'
+            },
+            {
+                data: 'id',
+                mRender: function (data, type, row) {
+                    var str = '';
+                    str += '<a href="' + window.contextRoot + '/show/' + data + '/product" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open></span>" </a>';
+                    str += '<a href="' + window.contextRoot + '/cart/add/' + data + '/product class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart></span></a>';
+
+                    return str;
+                }
             }
         ]
     })
