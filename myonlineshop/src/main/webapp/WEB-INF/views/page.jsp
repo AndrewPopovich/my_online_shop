@@ -86,6 +86,9 @@
     <!-- DataTable Plugin -->
     <script src="${js}/jquery.dataTables.js"></script>
 
+    <!-- Bootstrap DataTable Plugin -->
+    <script src="${js}/dataTables.bootstrap.js"></script>
+
     <!-- Self coded JS -->
     <script src="${js}/myapp.js"></script>
 
