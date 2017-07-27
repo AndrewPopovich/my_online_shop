@@ -81,6 +81,10 @@ public class PageController {
 
         Product product = productDAO.get(id);
 
+        product.setViews(product.getViews() + 1);
+        productDAO.update(product);
+
+
 
         return mv;
     }
