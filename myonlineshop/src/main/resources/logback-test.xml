@@ -1,16 +1,16 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <configuration>
-    <appender name="consoleAppender" class="ch.gos.logback.core.ConsoleAppender">
+    <appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
             <Pattern>%-5level %msg %d{HH:mm:ss.SSS} %logger{36} %n</Pattern>
         </encoder>
     </appender>
 
     <logger name="com.myshop" level="INFO">
-        <appender ref="consoleAppender"/>
+        <appender-ref ref="consoleAppender"/>
     </logger>
 
     <root>
-        <appender ref="consoleAppender"/>
+        <appender-ref ref="consoleAppender"/>
     </root>
 </configuration>

@@ -46,6 +46,6 @@ public class ProductTestCase {
 
     @Test
     public void testListActiveProducts() {
-        Assert.assertEquals("Something wrong!(listActive)", 9, productDAO.listActiveProducts().size());
+        Assert.assertEquals("Something wrong!(listActive)", 4, productDAO.listActiveProducts().size());
     }
 }
