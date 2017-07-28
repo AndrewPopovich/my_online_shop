@@ -1,5 +1,6 @@
 package com.myshop.myonlineshop.controller;
 
+import com.myshop.myonlineshop.exception.ProductNotFoundException;
 import com.myshop.shopbackend.dao.CategoryDAO;
 import com.myshop.shopbackend.dao.ProductDAO;
 import com.myshop.shopbackend.dto.Category;
@@ -82,10 +83,12 @@ public class PageController {
     }
 
     @RequestMapping(value = "/show/{id}/product")
-    public ModelAndView showSingleProduct(@PathVariable(value = "id") int id) {
+    public ModelAndView showSingleProduct(@PathVariable(value = "id") int id) throws ProductNotFoundException {
         ModelAndView mv = new ModelAndView("page");
 
         Product product = productDAO.get(id);
+
+        if (product == null) throw new ProductNotFoundException();
 
         product.setViews(product.getViews() + 1);
         productDAO.update(product);

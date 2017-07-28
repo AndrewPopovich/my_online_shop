@@ -14,7 +14,18 @@ public class GlobalDefaultExceptionHandler {
 
         mv.addObject("errorTitle", "The page is not constructed!");
         mv.addObject("errorDescription", "The page you are looking for is not available now!");
-        mv.addObject("title", "404 Error Page");
+        mv.addObject("title", "404 Error Page!");
+
+        return mv;
+    }
+
+    @ExceptionHandler(ProductNotFoundException.class)
+    public ModelAndView handlerProductNotFoundException() {
+        ModelAndView mv = new ModelAndView("error");
+
+        mv.addObject("errorTitle", "The product available!");
+        mv.addObject("errorDescription", "The product you are looking for is not available now!");
+        mv.addObject("title", "Product unavailable!");
 
         return mv;
     }
