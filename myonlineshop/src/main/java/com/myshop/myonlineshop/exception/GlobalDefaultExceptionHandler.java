@@ -10,7 +10,7 @@ public class GlobalDefaultExceptionHandler {
 
     @ExceptionHandler(NoHandlerFoundException.class)
     public ModelAndView handlerNoHandlerFoundException() {
-        ModelAndView mv = new ModelAndView();
+        ModelAndView mv = new ModelAndView("error");
 
         mv.addObject("errorTitle", "The page is not constructed!");
         mv.addObject("errorDescription", "The page you are looking for is not available now!");
