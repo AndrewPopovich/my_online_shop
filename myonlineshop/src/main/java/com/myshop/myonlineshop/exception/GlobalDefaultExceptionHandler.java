@@ -29,4 +29,15 @@ public class GlobalDefaultExceptionHandler {
 
         return mv;
     }
+
+    @ExceptionHandler(Exception.class)
+    public ModelAndView handlerException(Exception ex) {
+        ModelAndView mv = new ModelAndView("error");
+
+        mv.addObject("errorTitle", "Contact you administrator!");
+        mv.addObject("errorDescription", ex.toString());
+        mv.addObject("title", "Error!");
+
+        return mv;
+    }
 }
