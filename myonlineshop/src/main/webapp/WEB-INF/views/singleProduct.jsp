@@ -59,9 +59,6 @@
                 </c:otherwise>
             </c:choose>
 
-<%--
-            <a href="${contextRoot}/cart/add/${product.id}/product" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart"></span>Add to Cart</a>
---%>
             <a href="${contextRoot}/show/all/products" class="btn btn-primary">Back</a>
 
         </div>
