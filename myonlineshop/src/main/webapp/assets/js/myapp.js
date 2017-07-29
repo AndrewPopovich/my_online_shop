@@ -90,8 +90,6 @@ $(function () {
     if ($alert.length) {
         setTimeout(function () {
             $alert.fadeOut("slow");
-        }, 3000){
-
-        })
+        }, 3000)
     }
 });

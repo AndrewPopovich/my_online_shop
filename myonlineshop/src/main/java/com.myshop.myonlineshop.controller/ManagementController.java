@@ -4,6 +4,8 @@ import com.myshop.shopbackend.dao.CategoryDAO;
 import com.myshop.shopbackend.dao.ProductDAO;
 import com.myshop.shopbackend.dto.Category;
 import com.myshop.shopbackend.dto.Product;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -24,6 +26,8 @@ public class ManagementController {
     @Autowired
     private CategoryDAO categoryDAO;
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(ManagementController.class);
+
     @RequestMapping(value = "/products", method = RequestMethod.GET)
     public ModelAndView showManageProducts(@RequestParam(name = "operation", required = false) String operation) {
         ModelAndView mv = new ModelAndView("page");
@@ -37,7 +41,7 @@ public class ManagementController {
 
         mv.addObject("product", nProduct);
 
-        if (operation != null && operation.endsWith("product")) {
+        if (operation != null && operation.equals("product")) {
             mv.addObject("message", "Product Submitted Successfully!");
         }
         return mv;
@@ -45,10 +49,11 @@ public class ManagementController {
 
     @RequestMapping(value = "/products", method = RequestMethod.POST)
     public String handleProductSubmission(@ModelAttribute("product") Product mProduct) {
+        LOGGER.info(mProduct.toString());
 
         productDAO.add(mProduct);
 
-        return "redirect:/manage/products";
+        return "redirect:/manage/products?operation=product";
     }
 
     @ModelAttribute("categories")

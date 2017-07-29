@@ -55,6 +55,24 @@ public class Product {
         code = "PRD" + UUID.randomUUID().toString().substring(26).toUpperCase();
     }
 
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", code='" + code + '\'' +
+                ", name='" + name + '\'' +
+                ", brand='" + brand + '\'' +
+                ", description='" + description + '\'' +
+                ", unitPrice=" + unitPrice +
+                ", quantity=" + quantity +
+                ", active=" + active +
+                ", categoryId=" + categoryId +
+                ", supplierId=" + supplierId +
+                ", purchases=" + purchases +
+                ", views=" + views +
+                '}';
+    }
+
     public int getId() {
         return id;
     }
