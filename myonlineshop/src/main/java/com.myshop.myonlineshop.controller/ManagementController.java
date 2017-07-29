@@ -58,6 +58,7 @@ public class ManagementController {
 
             model.addAttribute("userClickManageProducts", true);
             model.addAttribute("title", "Manage Products");
+            model.addAttribute("message", "Validation failed for Product Submission");
 
             return "page";
         }
