@@ -2,6 +2,14 @@
 
 <div class="container">
     <div class="row">
+        <c:if test="${not empty message}">
+            <div class="col-xs-12">
+                <div class="alert alert-success alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    ${message}
+                </div>
+            </div>
+        </c:if>
         <div class="col-md-offset-2 col-md-8">
             <div class="panel panel-primary">
                 <div class="panel-heading">
@@ -10,7 +18,7 @@
                 <div class="panel-body">
 
                     <sf:form class="form-horizontal" modelAttribute="product"
-                    action="${contextRoot}/manage/products" method="POST">
+                             action="${contextRoot}/manage/products" method="POST">
                         <div class="form-group">
                             <label class="control-label col-md-4" for="name">Enter Product Name</label>
                             <div class="col-md-8">
