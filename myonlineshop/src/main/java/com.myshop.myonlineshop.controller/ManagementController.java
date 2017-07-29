@@ -1,5 +1,6 @@
 package com.myshop.myonlineshop.controller;
 
+import com.myshop.myonlineshop.com.myshop.myonlineshop.validator.ProductValidator;
 import com.myshop.myonlineshop.util.FileUploadUtility;
 import com.myshop.shopbackend.dao.CategoryDAO;
 import com.myshop.shopbackend.dao.ProductDAO;
@@ -55,6 +56,8 @@ public class ManagementController {
     @RequestMapping(value = "/products", method = RequestMethod.POST)
     public String handleProductSubmission(@Valid @ModelAttribute("product") Product mProduct, BindingResult results, Model model,
                                           HttpServletRequest request) {
+
+        new ProductValidator().validate(mProduct, results);
 
         if (results.hasErrors()) {
             LOGGER.warn("Validator has errors!");
