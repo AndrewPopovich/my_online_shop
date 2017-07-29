@@ -9,7 +9,8 @@
                 </div>
                 <div class="panel-body">
 
-                    <sf:form class="form-horizontal" modelAttribute="product">
+                    <sf:form class="form-horizontal" modelAttribute="product"
+                    action="${contextRoot}/manage/products" method="POST">
                         <div class="form-group">
                             <label class="control-label col-md-4" for="name">Enter Product Name</label>
                             <div class="col-md-8">
@@ -72,7 +73,6 @@
                             <div class="col-md-offset-4 col-md-8">
                                 <input type="submit" name="submit" id="submit" value="Submit"
                                        class="btn btn-primary">
-
                                 <sf:hidden path="id"/>
                                 <sf:hidden path="code"/>
                                 <sf:hidden path="supplierId"/>
