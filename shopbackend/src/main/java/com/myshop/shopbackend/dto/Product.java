@@ -1,12 +1,14 @@
 package com.myshop.shopbackend.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Min;
 import java.util.UUID;
 
 @Entity
@@ -18,14 +20,18 @@ public class Product {
 
     private String code;
 
+    @NotBlank(message = "Please enter the product name!")
     private String name;
 
+    @NotBlank(message = "Please enter the brand name!")
     private String brand;
 
     @JsonIgnore
+    @NotBlank(message = "Please enter the product description!")
     private String description;
 
     @Column(name = "unit_price")
+    @Min(value = 1, message = "The price cannot be less the 1!")
     private double unitPrice;
 
     private int quantity;
