@@ -25,7 +25,6 @@
                                 <sf:input type="text" path="name" id="name" placeholder="Product Name"
                                           class="form-control"/>
                                 <sf:errors path="name" cssClass="help-block" element="em"/>
-                                <em class="help-block">Please enter Product Name</em>
                             </div>
                         </div>
 
@@ -35,7 +34,6 @@
                                 <sf:input type="text" path="brand" id="brand" placeholder="Brand Name"
                                           class="form-control"/>
                                 <sf:errors path="brand" cssClass="help-block" element="em"/>
-                                <em class="help-block">Please enter Brand Name</em>
                             </div>
                         </div>
 
@@ -46,7 +44,6 @@
                                              placeholder="Write product description..."
                                              class="form-control"/>
                                 <sf:errors path="description" cssClass="help-block" element="em"/>
-                                <em class="help-block">Please enter description...</em>
                             </div>
                         </div>
 
@@ -57,7 +54,6 @@
                                           placeholder="Unit price in &#8372"
                                           class="form-control"/>
                                 <sf:errors path="unitPrice" cssClass="help-block" element="em"/>
-                                <em class="help-block">Please enter Unit Price</em>
                             </div>
                         </div>
 
@@ -66,7 +62,6 @@
                             <div class="col-md-8">
                                 <sf:input type="number" path="quantity" id="quantity" placeholder="Quantity"
                                           class="form-control"/>
-                                <em class="help-block">Please enter Quantity</em>
                             </div>
                         </div>
 
