@@ -49,6 +49,6 @@ public class ProductTestCase {
         /*Product product = productDAO.get(1);
         product.setQuantity(0);
         Assert.assertEquals(true, productDAO.update(product));*/
-        Assert.assertEquals("Something wrong!(listActive)", 6, productDAO.listActiveProducts().size());
+        Assert.assertEquals("Something wrong!(listActive)", 5, productDAO.listActiveProducts().size());
     }
 }
