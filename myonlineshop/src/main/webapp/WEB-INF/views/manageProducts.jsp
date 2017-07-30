@@ -116,6 +116,7 @@
                             <th>Id</th>
                             <th>&#160</th>
                             <th>Name</th>
+                            <th>Brand</th>
                             <th>Quantity</th>
                             <th>Unit price</th>
                             <th>Active</th>
@@ -126,18 +127,20 @@
                         <tbody>
                         <tr>
                             <td></td>
-                            <td></td>
+                            <td>
+                                <img class="adminDataTableImg" src="${contextRoot}/resources/images/"/>
+                            </td>
                             <td></td>
                             <td></td>
                             <td></td>
                             <td>
                                 <div class="onoffswitch">
-                                    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" value="4">
-                                    <label class="onoffswitch-label" for="myonoffswitch">
-                                        <span class="onoffswitch-inner"></span>
-                                        <span class="onoffswitch-switch"></span>
-                                    </label>
-                                </div>
+                                <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" value="4">
+                                <label class="onoffswitch-label" for="myonoffswitch">
+                                    <span class="onoffswitch-inner"></span>
+                                    <span class="onoffswitch-switch"></span>
+                                </label>
+                            </div>
                             </td>
                             <td></td>
                         </tr>
@@ -148,6 +151,7 @@
                             <th>Id</th>
                             <th>&#160</th>
                             <th>Name</th>
+                            <th>Brand</th>
                             <th>Quantity</th>
                             <th>Unit price</th>
                             <th>Active</th>
