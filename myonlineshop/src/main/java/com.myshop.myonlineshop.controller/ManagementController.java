@@ -59,7 +59,13 @@ public class ManagementController {
     public String handleProductSubmission(@Valid @ModelAttribute("product") Product mProduct, BindingResult results, Model model,
                                           HttpServletRequest request) {
 
-        new ProductValidator().validate(mProduct, results);
+        if (mProduct.getId() == 0) {
+            new ProductValidator().validate(mProduct, results);
+        } else {
+            if (!mProduct.getFile().getOriginalFilename().equals("")) {
+                new ProductValidator().validate(mProduct, results);
+            }
+        }
 
         if (results.hasErrors()) {
             LOGGER.info("Validator has errors!");
@@ -73,7 +79,11 @@ public class ManagementController {
 
         LOGGER.debug(mProduct.toString());
 
-        productDAO.add(mProduct);
+        if (mProduct.getId() == 0) {
+            productDAO.add(mProduct);
+        } else {
+            productDAO.update(mProduct);
+        }
 
         if (!mProduct.getFile().getOriginalFilename().equals("")) {
             FileUploadUtility.uploadFile(request, mProduct.getFile(), mProduct.getCode());
@@ -98,6 +108,20 @@ public class ManagementController {
 
         return (isActive) ? "You are successfully deactivate the product with id: " + product.getId() + "!" :
                 "You are successfully activate the product with id: " + product.getId() + "!";
+    }
+
+    @RequestMapping(value = "{id}/product", method = RequestMethod.GET)
+    public ModelAndView showEditProduct(@PathVariable int id) {
+        ModelAndView mv = new ModelAndView("page");
+
+        mv.addObject("userClickManageProducts", true);
+        mv.addObject("title", "Manage Products");
+        Product product = productDAO.get(id);
+
+        mv.addObject("product", product);
+
+
+        return mv;
     }
 
     @ModelAttribute("categories")
