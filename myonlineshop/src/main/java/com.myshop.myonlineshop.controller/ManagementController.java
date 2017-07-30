@@ -128,4 +128,9 @@ public class ManagementController {
     public List<Category> getCategories() {
         return categoryDAO.list();
     }
+
+    @ModelAttribute("category")
+    public Category getCategory() {
+        return new Category();
+    }
 }
