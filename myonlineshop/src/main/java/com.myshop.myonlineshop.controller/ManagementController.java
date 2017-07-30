@@ -13,9 +13,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -73,11 +75,27 @@ public class ManagementController {
 
         productDAO.add(mProduct);
 
-        if(!mProduct.getFile().getOriginalFilename().equals("")) {
+        if (!mProduct.getFile().getOriginalFilename().equals("")) {
             FileUploadUtility.uploadFile(request, mProduct.getFile(), mProduct.getCode());
         }
 
         return "redirect:/manage/products?operation=product";
+    }
+
+    @RequestMapping(value = "/products/{id}/activation", method = RequestMethod.POST)
+    @ResponseBody
+    public String handleProductActivation(@PathVariable int id) {
+
+        Product product = productDAO.get(id);
+
+        boolean isActive = product.isActive();
+
+        product.setActive(!product.isActive());
+
+        productDAO.update(product);
+
+        return (isActive) ? "You are successfully deactivate the product with id: " + product.getId() + "!" :
+                "You are successfully activate the product with id: " + product.getId() + "!";
     }
 
     @ModelAttribute("categories")
