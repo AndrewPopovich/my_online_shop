@@ -94,33 +94,6 @@ $(function () {
         }, 3000)
     }
 
-    $('.onoffswitch-label input[type="checkbox"]').on('change', function () {
-        var checkbox = $(this);
-        var checked = checkbox.prop('checked');
-        var dMsg = (checked) ? 'You want to activate the product?' :
-            'You want to deactivate the product?';
-
-        var value = checked.prop('value');
-
-        bootbox.confirm({
-            size: 'medium',
-            title: 'Product activation & deactivation',
-            message: dMsg,
-            callback: function (confirmed) {
-                if (confirmed) {
-                    console.log(value);
-                    bootbox.alert({
-                        size: 'medium',
-                        title: 'Information',
-                        message: 'You are going to perform operation on product ' + value
-                    });
-                } else {
-                    checkbox.prop('checked', !checked);
-                }
-            }
-        })
-    });
-
     var $adminProductsTable = $('#adminProductsTable');
 
     if ($adminProductsTable.length) {
@@ -175,16 +148,16 @@ $(function () {
 
                         if (data) {
                             str += '<div class="onoffswitch">\n';
-                            str += '<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch'+ row.id+'" value="' + row.id + '" checked>\n';
-                            str += '<label class="onoffswitch-label" for="myonoffswitch'+ row.id+'">\n';
+                            str += '<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch' + row.id + '" value="' + row.id + '" checked>\n';
+                            str += '<label class="onoffswitch-label" for="myonoffswitch' + row.id + '">\n';
                             str += '<span class="onoffswitch-inner"></span>\n';
                             str += '<span class="onoffswitch-switch"></span>\n';
                             str += '</label>\n';
                             str += '</div>';
                         } else {
                             str += '<div class="onoffswitch">\n';
-                            str += '<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch'+ row.id+'" value="' + row.id + '">\n';
-                            str += '<label class="onoffswitch-label" for="myonoffswitch'+ row.id+'">\n';
+                            str += '<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch' + row.id + '" value="' + row.id + '">\n';
+                            str += '<label class="onoffswitch-label" for="myonoffswitch' + row.id + '">\n';
                             str += '<span class="onoffswitch-inner"></span>\n';
                             str += '<span class="onoffswitch-switch"></span>\n';
                             str += '</label>\n';
@@ -209,15 +182,15 @@ $(function () {
                 }
             ],
 
-            initComplete: function() {
-                var api = this.api;
+            initComplete: function () {
+                var api = this.api();
                 api.$('.onoffswitch input[type="checkbox"]').on('change', function () {
                     var checkbox = $(this);
                     var checked = checkbox.prop('checked');
                     var dMsg = (checked) ? 'You want to activate the product?' :
                         'You want to deactivate the product?';
 
-                    var value = checked.prop('value');
+                    var value = checkbox.prop('value');
 
                     bootbox.confirm({
                         size: 'medium',
@@ -227,7 +200,7 @@ $(function () {
                             if (confirmed) {
                                 console.log(value);
 
-                                var activationUrl = window.contextRoot + '/manage/product/' + value + '/activation';
+                                var activationUrl = window.contextRoot + '/manage/products/' + value + '/activation';
 
                                 $.post(activationUrl, function (data) {
                                     bootbox.alert({

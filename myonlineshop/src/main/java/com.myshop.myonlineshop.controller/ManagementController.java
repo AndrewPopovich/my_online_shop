@@ -62,7 +62,7 @@ public class ManagementController {
         new ProductValidator().validate(mProduct, results);
 
         if (results.hasErrors()) {
-            LOGGER.warn("Validator has errors!");
+            LOGGER.info("Validator has errors!");
 
             model.addAttribute("userClickManageProducts", true);
             model.addAttribute("title", "Manage Products");
@@ -71,7 +71,7 @@ public class ManagementController {
             return "page";
         }
 
-        LOGGER.info(mProduct.toString());
+        LOGGER.debug(mProduct.toString());
 
         productDAO.add(mProduct);
 
@@ -90,9 +90,11 @@ public class ManagementController {
 
         boolean isActive = product.isActive();
 
-        product.setActive(!product.isActive());
+        product.setActive(!isActive);
 
         productDAO.update(product);
+
+        LOGGER.debug("Activation/Deactivation. Before: " + isActive + "/ After: " + product.isActive());
 
         return (isActive) ? "You are successfully deactivate the product with id: " + product.getId() + "!" :
                 "You are successfully activate the product with id: " + product.getId() + "!";

@@ -140,7 +140,7 @@ public class Product {
     }
 
     public void setActive(boolean active) {
-        active = active;
+        this.active = active;
     }
 
     public int getCategoryId() {
