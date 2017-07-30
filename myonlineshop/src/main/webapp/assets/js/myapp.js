@@ -41,6 +41,7 @@ $(function () {
             columns: [
                 {
                     data: 'code',
+                    bSortable: false,
                     mRender: function (data, type, row) {
                         return '<img src="' + window.contextRoot + '/resources/images/' + data + '.jpg" class="dataTableImg"/>'
                     }
@@ -139,6 +140,7 @@ $(function () {
                 },
                 {
                     data: 'code',
+                    bSortable: false,
                     mRender: function (data, type, row) {
                         return '<img src="' + window.contextRoot + '/resources/images/' + data + '.jpg" class="adminDataTableImg"/>'
                     }
@@ -170,17 +172,25 @@ $(function () {
                     mRender: function (data, type, row) {
                         var str = '';
 
-                        str += '<div class="onoffswitch">\n';
+
                         if (data) {
-                            str += '<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked value="' + row.id + '">\n';
+                            str += '<div class="onoffswitch">\n';
+                            str += '<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch'+ row.id+'" value="' + row.id + '" checked>\n';
+                            str += '<label class="onoffswitch-label" for="myonoffswitch'+ row.id+'">\n';
+                            str += '<span class="onoffswitch-inner"></span>\n';
+                            str += '<span class="onoffswitch-switch"></span>\n';
+                            str += '</label>\n';
+                            str += '</div>';
                         } else {
-                            str += '<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" value="' + row.id + '">\n';
+                            str += '<div class="onoffswitch">\n';
+                            str += '<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch'+ row.id+'" value="' + row.id + '">\n';
+                            str += '<label class="onoffswitch-label" for="myonoffswitch'+ row.id+'">\n';
+                            str += '<span class="onoffswitch-inner"></span>\n';
+                            str += '<span class="onoffswitch-switch"></span>\n';
+                            str += '</label>\n';
+                            str += '</div>';
                         }
-                        str += '<label class="onoffswitch-label" for="myonoffswitch">\n';
-                        str += '<span class="onoffswitch-inner"></span>\n';
-                        str += '<span class="onoffswitch-switch"></span>\n';
-                        str += '</label>\n';
-                        str += '</div>';
+
 
                         return str;
                     }
@@ -191,13 +201,43 @@ $(function () {
                     bSortable: false,
                     mRender: function (data, type, row) {
                         var str = '';
-                        str += 'a <href="${contextRoot}/manage/' + data + '/product" class="btn btn-warning">' +
-                            '<span class=""glyphicon glyphicon-pencil></span>' +
+                        str += '<a href="${contextRoot}/manage/' + data + '/product" class="btn btn-warning">' +
+                            '<span class="glyphicon glyphicon-pencil"></span>' +
                             '</a>';
                         return str;
                     }
                 }
-            ]
+            ],
+
+            initComplete: function() {
+                var api = this.api;
+                api.$('.onoffswitch input[type="checkbox"]').on('change', function () {
+                    var checkbox = $(this);
+                    var checked = checkbox.prop('checked');
+                    var dMsg = (checked) ? 'You want to activate the product?' :
+                        'You want to deactivate the product?';
+
+                    var value = checked.prop('value');
+
+                    bootbox.confirm({
+                        size: 'medium',
+                        title: 'Product activation & deactivation',
+                        message: dMsg,
+                        callback: function (confirmed) {
+                            if (confirmed) {
+                                console.log(value);
+                                bootbox.alert({
+                                    size: 'medium',
+                                    title: 'Information',
+                                    message: 'You are going to perform operation on product ' + value
+                                });
+                            } else {
+                                checkbox.prop('checked', !checked);
+                            }
+                        }
+                    })
+                });
+            }
         });
     }
 });

@@ -124,28 +124,6 @@
                         </tr>
                         </thead>
 
-                        <tbody>
-                        <tr>
-                            <td></td>
-                            <td>
-                                <img class="adminDataTableImg" src="${contextRoot}/resources/images/"/>
-                            </td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <div class="onoffswitch">
-                                <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" value="4">
-                                <label class="onoffswitch-label" for="myonoffswitch">
-                                    <span class="onoffswitch-inner"></span>
-                                    <span class="onoffswitch-switch"></span>
-                                </label>
-                            </div>
-                            </td>
-                            <td></td>
-                        </tr>
-                        </tbody>
-
                         <tfoot>
                         <tr>
                             <th>Id</th>
