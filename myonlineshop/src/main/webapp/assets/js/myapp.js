@@ -219,4 +219,34 @@ $(function () {
             }
         });
     }
+
+    var $categoryForm = $('#categoryForm');
+
+    if ($categoryForm.length) {
+        $categoryForm.validate({
+            rules: {
+                name: {
+                    required: true,
+                    minlength: 3
+                },
+                description: {
+                    required: true
+                }
+            },
+            messages: {
+                name: {
+                    required: 'Please add the category name!',
+                    minlength: 'The category name should not be less 3 characters!'
+                },
+                description: {
+                    required: 'Please add the category description!'
+                }
+            },
+            errorElement: 'em',
+            errorPlacement: function (error, element) {
+                error.addClass('help-block');
+                error.insertAfter(element);
+            }
+        });
+    }
 });
