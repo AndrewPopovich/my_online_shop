@@ -21,39 +21,45 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public boolean addUser(User user) {
+        boolean result = false;
+
         try {
             sessionFactory.getCurrentSession().persist(user);
-            return true;
+            result = true;
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return false;
+        return result;
     }
 
     @Override
     public User getByEmail(String email) {
+        User result = null;
+
         String selectQuery = "FROM User WHERE email = :email";
 
         try {
-            return sessionFactory.getCurrentSession()
+            result = sessionFactory.getCurrentSession()
                     .createQuery(selectQuery, User.class)
                     .setParameter("email", email)
                     .getSingleResult();
         } catch (Exception ex) {
             ex.printStackTrace();
-            return null;
+            return result;
         }
     }
 
     @Override
     public boolean addAddress(Address address) {
+        boolean result = false;
+
         try {
             sessionFactory.getCurrentSession().persist(address);
-            return true;
+            result = true;
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return false;
+        return result;
     }
 
     @Override
@@ -81,12 +87,14 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public boolean updateCart(Cart cart) {
+        boolean result = false;
+
         try {
             sessionFactory.getCurrentSession().update(cart);
-            return true;
+            result = true;
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return false;
+        return result;
     }
 }
