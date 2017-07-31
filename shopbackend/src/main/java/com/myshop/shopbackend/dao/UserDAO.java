@@ -12,5 +12,7 @@ public interface UserDAO {
 
     boolean addAddress(Address address);
 
+    Address getBillingAddress();
+
     boolean updateCart(Cart cart);
 }

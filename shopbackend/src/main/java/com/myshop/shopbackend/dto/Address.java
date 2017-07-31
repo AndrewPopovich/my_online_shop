@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Address {
@@ -13,8 +14,8 @@ public class Address {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "user_id")
-    private int userId;
+    @ManyToOne
+    private User user;
 
     @Column(name = "address_line_one")
     private String addressLineOne;
@@ -37,20 +38,20 @@ public class Address {
     @Column(name = "is_shipping")
     private boolean isShipping;
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     public int getId() {
         return id;
     }
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
     }
 
     public String getAddressLineOne() {
@@ -121,7 +122,6 @@ public class Address {
     public String toString() {
         return "Address{" +
                 "id=" + id +
-                ", userId=" + userId +
                 ", addressLineOne='" + addressLineOne + '\'' +
                 ", addressLineTwo='" + addressLineTwo + '\'' +
                 ", city='" + city + '\'' +
