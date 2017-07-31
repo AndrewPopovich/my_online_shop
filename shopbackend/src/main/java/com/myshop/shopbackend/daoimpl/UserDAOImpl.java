@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Repository("userDAO")
 @Transactional
 public class UserDAOImpl implements UserDAO {
@@ -52,6 +54,29 @@ public class UserDAOImpl implements UserDAO {
             e.printStackTrace();
         }
         return false;
+    }
+
+    @Override
+    public Address getBillingAddress(User user) {
+        String selectQuery = "FROM Address WHERE user = :user AND billing = :billing";
+
+        Address result = null;
+
+        try {
+            result = sessionFactory.getCurrentSession()
+                    .createQuery(selectQuery, Address.class)
+                    .setParameter("user", user)
+                    .setParameter("billing", true)
+                    .getSingleResult()
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return result;
+    }
+
+    @Override
+    public List<Address> listShippingAddresses(User user) {
+        return null;
     }
 
     @Override
