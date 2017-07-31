@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Repository("userDAO")
 @Transactional
-public class UserDAOImpl implements UserDAO{
+public class UserDAOImpl implements UserDAO {
 
     @Autowired
     private SessionFactory sessionFactory;
@@ -26,6 +26,21 @@ public class UserDAOImpl implements UserDAO{
             e.printStackTrace();
         }
         return false;
+    }
+
+    @Override
+    public User getByEmail(String email) {
+        String selectQuery = "FROM User WHERE email = :email";
+
+        try {
+            return sessionFactory.getCurrentSession()
+                    .createQuery(selectQuery, User.class)
+                    .setParameter("email", email)
+                    .getSingleResult();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return null;
+        }
     }
 
     @Override
