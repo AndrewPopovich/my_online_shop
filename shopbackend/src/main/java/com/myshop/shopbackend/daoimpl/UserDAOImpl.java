@@ -40,9 +40,9 @@ public class UserDAOImpl implements UserDAO{
     }
 
     @Override
-    public boolean addCart(Cart cart) {
+    public boolean updateCart(Cart cart) {
         try {
-            sessionFactory.getCurrentSession().persist(cart);
+            sessionFactory.getCurrentSession().update(cart);
             return true;
         } catch (Exception e) {
             e.printStackTrace();

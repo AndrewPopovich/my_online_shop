@@ -10,5 +10,5 @@ public interface UserDAO {
 
     boolean addAddress(Address address);
 
-    boolean addCart(Cart cart);
+    boolean updateCart(Cart cart);
 }
