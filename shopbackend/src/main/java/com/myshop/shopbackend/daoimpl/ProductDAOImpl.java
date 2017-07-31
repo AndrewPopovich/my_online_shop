@@ -19,47 +19,63 @@ public class ProductDAOImpl implements ProductDAO {
 
     @Override
     public boolean add(Product product) {
+        boolean result = false;
+
         try {
             sessionFactory.getCurrentSession().persist(product);
-            return true;
+            result = true;
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return false;
+        return result;
     }
 
     @Override
     public boolean update(Product product) {
+        boolean result = false;
+
         try {
             sessionFactory.getCurrentSession().update(product);
-            return true;
+            result = true;
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return false;
+        return result;
 
     }
 
     @Override
     public boolean delete(Product product) {
+        boolean result = false;
+
         try {
             product.setActive(false);
 
-            return update(product);
+            result = update(product);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return false;
+        return result;
     }
 
     @Override
     public List<Product> list() {
-        return sessionFactory.getCurrentSession().createQuery("FROM Product", Product.class).getResultList();
+        List<Product> result = null;
+
+        try {
+            result = sessionFactory.getCurrentSession()
+                    .createQuery("FROM Product", Product.class)
+                    .getResultList();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
+        return result;
     }
 
     @Override
     public Product get(int id) {
-        return sessionFactory.getCurrentSession().get(Product.class, Integer.valueOf(id));
+        return sessionFactory.getCurrentSession().get(Product.class, id);
     }
 
     @Override
@@ -74,21 +90,39 @@ public class ProductDAOImpl implements ProductDAO {
 
     @Override
     public List<Product> listActiveProductsByCategory(int categoryId) {
+        List<Product> result = null;
+
         String selectActiveProductsByCategory = "FROM Product WHERE active = :active AND categoryId = :categoryId";
 
-        Query query = sessionFactory.getCurrentSession().createQuery(selectActiveProductsByCategory, Product.class);
-        query.setParameter("active", true).setParameter("categoryId", categoryId);
-
-        return query.getResultList();
+        try {
+            result = sessionFactory.getCurrentSession()
+                    .createQuery(selectActiveProductsByCategory, Product.class)
+                    .setParameter("active", true)
+                    .setParameter("categoryId", categoryId)
+                    .getResultList();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return result;
     }
 
     @Override
     public List<Product> getLatestActiveProducts(int count) {
+        List<Product> result = null;
+
         String selectLatestActiveProducts = "FROM Product WHERE active = :active ORDER BY Id";
 
-        Query query = sessionFactory.getCurrentSession().createQuery(selectLatestActiveProducts, Product.class);
-        query.setParameter("active", true).setFirstResult(0).setMaxResults(count);
+        try {
+            result = sessionFactory.getCurrentSession()
+                    .createQuery(selectLatestActiveProducts, Product.class)
+                    .setParameter("active", true)
+                    .setFirstResult(0)
+                    .setMaxResults(count)
+                    .getResultList();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
 
-        return query.getResultList();
+        return result;
     }
 }
