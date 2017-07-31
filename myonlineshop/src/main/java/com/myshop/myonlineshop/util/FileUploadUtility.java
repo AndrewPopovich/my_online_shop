@@ -22,16 +22,12 @@ public class FileUploadUtility {
 
         LOGGER.info("REAL_PATH: " + REAL_PATH);
 
-        File fileAbsPath;
-
-        if (!(fileAbsPath = new File(ABS_PATH)).exists()) {
-            fileAbsPath.mkdirs();
+        if (!new File(ABS_PATH).exists()) {
+            new File(ABS_PATH).mkdirs();
         }
 
-        File fileRealPath;
-
-        if (!(fileRealPath = new File(REAL_PATH)).exists()) {
-            fileRealPath.mkdirs();
+        if (!new File(REAL_PATH).exists()) {
+            new File(REAL_PATH).mkdirs();
         }
 
         try {

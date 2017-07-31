@@ -42,6 +42,7 @@ public class ManagementController {
 
         mv.addObject("userClickManageProducts", true);
         mv.addObject("title", "Manage Products");
+
         Product nProduct = new Product();
 
         nProduct.setSupplierId(1);
