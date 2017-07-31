@@ -45,8 +45,8 @@ public class UserDAOImpl implements UserDAO {
                     .getSingleResult();
         } catch (Exception ex) {
             ex.printStackTrace();
-            return result;
         }
+        return result;
     }
 
     @Override
@@ -73,7 +73,7 @@ public class UserDAOImpl implements UserDAO {
                     .createQuery(selectQuery, Address.class)
                     .setParameter("user", user)
                     .setParameter("billing", true)
-                    .getSingleResult()
+                    .getSingleResult();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -82,7 +82,20 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public List<Address> listShippingAddresses(User user) {
-        return null;
+        String selectQuery = "FROM Address WHERE user = :user AND shipping = :shipping";
+
+        List<Address> result = null;
+
+        try {
+            result = sessionFactory.getCurrentSession()
+                    .createQuery(selectQuery, Address.class)
+                    .setParameter("user", user)
+                    .setParameter("shipping", true)
+                    .getResultList();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return result;
     }
 
     @Override
