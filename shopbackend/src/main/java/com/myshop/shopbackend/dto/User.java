@@ -95,4 +95,18 @@ public class User {
     public void setContactNumber(String contactNumber) {
         this.contactNumber = contactNumber;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", secondName='" + secondName + '\'' +
+                ", role='" + role + '\'' +
+                ", enabled=" + enabled +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", contactNumber='" + contactNumber + '\'' +
+                '}';
+    }
 }
