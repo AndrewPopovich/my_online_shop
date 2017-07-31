@@ -19,46 +19,60 @@ public class CategoryDAOImpl implements CategoryDAO {
 
     @Override
     public boolean add(Category category) {
+        boolean result = false;
+
         try {
             sessionFactory.getCurrentSession().persist(category);
-            return true;
+            result = true;
         } catch (Exception e) {
             e.printStackTrace();
-            return false;
         }
+        return result;
     }
 
     @Override
     public boolean update(Category category) {
+        boolean result = false;
+
         try {
             sessionFactory.getCurrentSession().update(category);
-            return true;
+            result = true;
         } catch (Exception e) {
             e.printStackTrace();
-            return false;
         }
+        return result;
     }
 
     @Override
     public boolean delete(Category category) {
+        boolean result = false;
+
         try {
             category.setActive(false);
 
-            return update(category);
+            result = update(category);
         } catch (Exception e) {
             e.printStackTrace();
-            return false;
         }
+        return result;
     }
 
     @Override
     public List<Category> list() {
+        List<Category> result = null;
+
         String selectActiveCategories = "FROM Category WHERE active = :active";
 
-        Query query = sessionFactory.getCurrentSession().createQuery(selectActiveCategories);
-        query.setParameter("active", true);
+        try {
+            result = sessionFactory.getCurrentSession()
+                    .createQuery(selectActiveCategories)
+                    .setParameter("active", true)
+                    .getResultList();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
 
-        return query.getResultList();
+        return result;
     }
 
     @Override
