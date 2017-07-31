@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -31,6 +32,9 @@ public class User {
 
     @Column(name = "contact_number")
     private String contactNumber;
+
+    @OneToOne
+    private Cart cart;
 
     public int getId() {
         return id;
@@ -94,6 +98,14 @@ public class User {
 
     public void setContactNumber(String contactNumber) {
         this.contactNumber = contactNumber;
+    }
+
+    public Cart getCart() {
+        return cart;
+    }
+
+    public void setCart(Cart cart) {
+        this.cart = cart;
     }
 
     @Override
