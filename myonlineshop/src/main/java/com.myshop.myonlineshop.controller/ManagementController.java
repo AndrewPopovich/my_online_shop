@@ -83,14 +83,14 @@ public class ManagementController {
 
         LOGGER.debug(mProduct.toString());
 
+        if (!mProduct.getFile().getOriginalFilename().equals("")) {
+            FileUploadUtility.uploadFile(request, mProduct.getFile(), mProduct.getCode());
+        }
+
         if (mProduct.getId() == 0) {
             productDAO.add(mProduct);
         } else {
             productDAO.update(mProduct);
-        }
-
-        if (!mProduct.getFile().getOriginalFilename().equals("")) {
-            FileUploadUtility.uploadFile(request, mProduct.getFile(), mProduct.getCode());
         }
 
         return "redirect:/manage/products?operation=product";
@@ -129,7 +129,7 @@ public class ManagementController {
     }
 
     @RequestMapping(value = "/category", method = RequestMethod.POST)
-    public String handleCategorySubmission(@ModelAttribute Category category) {
+    public String handleCategorySubmission(@ModelAttribute("category") Category category) {
 
         categoryDAO.add(category);
 

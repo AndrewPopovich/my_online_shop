@@ -22,11 +22,10 @@
 
             <div class="thumbnail">
 
-                <img src="${images}/${product.code}.jpg" class="img img-responsive">
-
+                <a href="#bigImg" data-toggle="modal">
+                    <img src="${images}/${product.code}.jpg" class="img img-responsive">
+                </a>
             </div>
-
-
         </div>
 
         <%-- Display product description --%>
@@ -52,10 +51,12 @@
 
             <c:choose>
                 <c:when test="${product.quantity < 1}">
-                    <a href="javascript:void(0)" class="btn btn-success disable"><strike><span class="glyphicon glyphicon-shopping-cart"></span>Add to Cart</strike></a>
-                                  </c:when>
+                    <a href="javascript:void(0)" class="btn btn-success disable"><strike><span
+                            class="glyphicon glyphicon-shopping-cart"></span>Add to Cart</strike></a>
+                </c:when>
                 <c:otherwise>
-                    <a href="${contextRoot}/cart/add/${product.id}/product" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart"></span>Add to Cart</a>
+                    <a href="${contextRoot}/cart/add/${product.id}/product" class="btn btn-success"><span
+                            class="glyphicon glyphicon-shopping-cart"></span>Add to Cart</a>
                 </c:otherwise>
             </c:choose>
 
@@ -65,4 +66,18 @@
 
     </div>
 
+    <div class="modal fade" id="bigImg" role="img" tabindex="-1">
+        <div class="modal-dialog" role="img">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img src="${images}/${product.code}.jpg" class="img img-responsive">
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

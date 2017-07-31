@@ -82,6 +82,11 @@ footer {
     height: 100px;
 }
 
+.bigSingleImg {
+    width:750px;
+    height: 500px;
+}
+
 .help-block {
     color: #ff0000;
 }
