@@ -77,7 +77,7 @@ public class UserTestCase {
         }
     }*/
 
-    @Test
+    /*@Test
     public void testUpdateCart() {
         user = userDAO.getByEmail("petrov@gmail.com");
 
@@ -86,5 +86,42 @@ public class UserTestCase {
         cart.setGrandTotal(122);
         cart.setCartLines(2);
         Assert.assertEquals("Failed to update a cart", true, userDAO.updateCart(cart));
+    }*/
+
+    @Test
+    public void testAddAddress() {
+        user = new User();
+        user.setFirstName("Petya");
+        user.setLastName("Petrov");
+        user.setContactNumber("88005553535");
+        user.setEmail("petrov@gmail.com");
+        user.setPassword("password");
+        user.setRole("USER");
+
+        Assert.assertEquals("Failed to add user!", true, userDAO.addUser(user));
+
+        address = new Address();
+        address.setAddressLineOne("Lenina st.");
+        address.setAddressLineTwo("54a");
+        address.setCity("Dnipro");
+        address.setCountry("Ukraine");
+        address.setState("Dnipropetrovska obl.");
+        address.setPostalCode("51000");
+        address.setBilling(true);
+        address.setUser(user);
+
+        Assert.assertEquals("Failed to add address!", true, userDAO.addAddress(address));
+
+        address = new Address();
+        address.setAddressLineOne("Cantral st.");
+        address.setAddressLineTwo("4a");
+        address.setCity("Dnipro");
+        address.setCountry("Ukraine");
+        address.setState("Dnipropetrovska obl.");
+        address.setPostalCode("51000");
+        address.setShipping(true);
+        address.setUser(user);
+
+        Assert.assertEquals("Failed to add shipping address!", true, userDAO.addAddress(address));
     }
 }
