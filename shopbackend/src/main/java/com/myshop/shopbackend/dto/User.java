@@ -33,7 +33,7 @@ public class User {
     @Column(name = "contact_number")
     private String contactNumber;
 
-    @OneToOne
+    @OneToOne(mappedBy = "user")
     private Cart cart;
 
     public int getId() {
