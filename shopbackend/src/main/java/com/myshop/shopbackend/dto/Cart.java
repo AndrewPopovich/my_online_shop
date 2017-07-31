@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Cart {
@@ -13,8 +14,8 @@ public class Cart {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "user_id")
-    private int userId;
+    @OneToOne
+    private User user;
 
     @Column(name = "grand_total")
     private double grandTotal;
@@ -28,14 +29,6 @@ public class Cart {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
     }
 
     public double getGrandTotal() {
@@ -54,11 +47,19 @@ public class Cart {
         this.cartLines = cartLines;
     }
 
+    public User getUser() {
+        z
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     @Override
     public String toString() {
         return "Cart{" +
                 "id=" + id +
-                ", userId=" + userId +
                 ", grandTotal=" + grandTotal +
                 ", cartLines=" + cartLines +
                 '}';

@@ -16,7 +16,7 @@ public class CategoryTestCase {
 
     private Category category;
 
-    /*@BeforeClass
+    @BeforeClass
     public static void init() {
         context = new AnnotationConfigApplicationContext();
         context.scan("com.myshop.shopbackend");
@@ -35,7 +35,7 @@ public class CategoryTestCase {
         Assert.assertEquals("Something wrong!", true, categoryDAO.add(category));
     }
 
-    @Test
+    /*@Test
     public void testGetCategory() {
         Assert.assertEquals("Something wrong!", "Television", categoryDAO.get(1).getName());
     }
