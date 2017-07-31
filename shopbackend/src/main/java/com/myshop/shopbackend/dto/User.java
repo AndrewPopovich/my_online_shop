@@ -18,8 +18,8 @@ public class User {
     @Column(name = "first_name")
     private String firstName;
 
-    @Column(name = "second_name")
-    private String secondName;
+    @Column(name = "last_name")
+    private String lastName;
 
     private String role;
 
@@ -48,12 +48,12 @@ public class User {
         this.firstName = firstName;
     }
 
-    public String getSecondName() {
-        return secondName;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setSecondName(String secondName) {
-        this.secondName = secondName;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getRole() {

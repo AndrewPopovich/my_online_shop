@@ -4,7 +4,9 @@ import com.myshop.shopbackend.dao.UserDAO;
 import com.myshop.shopbackend.dto.Address;
 import com.myshop.shopbackend.dto.Cart;
 import com.myshop.shopbackend.dto.User;
+import org.junit.Assert;
 import org.junit.BeforeClass;
+import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class UserTestCase {
@@ -26,5 +28,52 @@ public class UserTestCase {
         context.refresh();
 
         userDAO = (UserDAO) context.getBean("userDAO");
+    }
+
+    @Test
+    public void testUserAdd() {
+        user = new User();
+        user.setFirstName("Petya");
+        user.setLastName("Petrov");
+        user.setContactNumber("88005553535");
+        user.setEmail("petrov@gmail.com");
+        user.setPassword("password");
+        user.setRole("USER");
+
+        Assert.assertEquals("Failed to add user!", true, userDAO.addUser(user));
+
+        address = new Address();
+        address.setAddressLineOne("Lenina st.");
+        address.setAddressLineTwo("54a");
+        address.setCity("Dnipro");
+        address.setCountry("Ukraine");
+        address.setState("Dnipropetrovska obl.");
+        address.setPostalCode("51000");
+        address.setBilling(true);
+        address.setUserId(user.getId());
+
+        Assert.assertEquals("Failed to add address!", true, userDAO.addAddress(address));
+
+        if (user.getRole().equals("USER")) {
+            cart = new Cart();
+            cart.setCartLines(1);
+            cart.setGrandTotal(1222);
+            cart.setUserId(user.getId());
+
+            Assert.assertEquals("Failed to add cart!", true, userDAO.addCart(cart));
+
+            address = new Address();
+            address.setAddressLineOne("Cantral st.");
+            address.setAddressLineTwo("4a");
+            address.setCity("Dnipro");
+            address.setCountry("Ukraine");
+            address.setState("Dnipropetrovska obl.");
+            address.setPostalCode("51000");
+            address.setShipping(true);
+            address.setUserId(user.getId());
+
+            Assert.assertEquals("Failed to add shipping address!", true, userDAO.addAddress(address));
+
+        }
     }
 }
