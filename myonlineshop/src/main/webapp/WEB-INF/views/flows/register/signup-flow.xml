@@ -5,11 +5,14 @@
                           http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
 
     <var name="user" class="com.myshop.shopbackend.dto.User"/>
+    <var name="billing" class="com.myshop.shopbackend.dto.Address"/>
 
-    <view-state id="personal" view="flows/register/signup-personal">
+    <view-state id="personal" view="flows/register/signup-personal" model="user">
         <transition on="billing" to="billing"/>
     </view-state>
-    <view-state id="billing" view="flows/register/signup-billing"/>
+    <view-state id="billing" view="flows/register/signup-billing" model="billing">
+        <transition on="confirm" to="confirm"/>
+    </view-state>
     <view-state id="confirm" view="flows/register/signup-confirm"/>
 
     <end-state id="home" view="externalRedirect:contextRelative:/"/>
