@@ -7,7 +7,7 @@
         <div class="col-md-6 col-md-offset-3">
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <h4>Sign Up - Personal</h4>
+                    <h4>Sign Up | Personal</h4>
                 </div>
 
                 <div class="panel-body">
@@ -61,7 +61,7 @@
                                 </label>
 
                                 <label class="radio-inline">
-                                    <sf:radiobutton path="role" value="SUPPLIER" checked="checked"/>Supplier
+                                    <sf:radiobutton path="role" value="SUPPLIER"/>Supplier
                                 </label>
                             </div>
                         </div>
