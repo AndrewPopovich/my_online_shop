@@ -5,8 +5,11 @@
                           http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
 
     <view-state id="personal" view="flows/register/signup-personal"/>
+    <view-state id="billing" view="flows/register/signup-billing"/>
+    <view-state id="confirm" view="flows/register/signup-confirm"/>
 
     <end-state id="home" view="externalRedirect:contextRelative:/"/>
+    <end-state id="success" view="flows/register/signup-success"/>
 
     <!-- Global Transition -->
     <global-transitions>
