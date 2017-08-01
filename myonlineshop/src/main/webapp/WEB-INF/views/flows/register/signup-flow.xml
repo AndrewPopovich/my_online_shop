@@ -16,7 +16,7 @@
     </view-state>
     <view-state id="confirm" view="flows/register/signup-confirm">
         <transition on="personal" to="personal"/>
-        <transition on="confirm" to="confirm"/>
+        <transition on="billing" to="billing"/>
         <transition on="success" to="success"/>
     </view-state>
 
