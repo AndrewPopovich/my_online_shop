@@ -49,7 +49,7 @@
 <body>
 
 <div class="wrapper">
-
+    <%-- Navigation --%>
     <%@include file="flows-navbar.jsp"%>
 
     <%-- Page content --%>
