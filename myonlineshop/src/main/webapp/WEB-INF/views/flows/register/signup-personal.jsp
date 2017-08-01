@@ -68,7 +68,7 @@
                         <div class="form-group">
                             <div class="col-md-offset-4 col-md-8">
                                 <button type="submit" class="btn btn-primary" name="_eventId_billing">
-                                    Next | Billing <span class="glyphicon glyphicon-chevron-right"/>
+                                    Next <span class="glyphicon glyphicon-chevron-right"/>
                                 </button>
                             </div>
                         </div>

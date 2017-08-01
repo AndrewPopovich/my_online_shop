@@ -11,6 +11,7 @@
         <transition on="billing" to="billing"/>
     </view-state>
     <view-state id="billing" view="flows/register/signup-billing" model="billing">
+        <transition on="personal" to="personal"/>
         <transition on="confirm" to="confirm"/>
     </view-state>
     <view-state id="confirm" view="flows/register/signup-confirm"/>
