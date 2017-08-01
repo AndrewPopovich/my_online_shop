@@ -4,5 +4,12 @@
       xsi:schemaLocation="http://www.springframework.org/schema/webflow
                           http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
 
-    <view-state id="personal" view="flows/regirter/signup-personal"></view-state>
+    <view-state id="personal" view="flows/register/signup-personal"></view-state>
+
+    <end-state id="home" view="externalRedirect:contextRelative/"/>
+
+    <!-- Global Transition -->
+    <global-transitions>
+        <transition>on="home" to="home"/>
+    </global-transitions>
 </flow>
