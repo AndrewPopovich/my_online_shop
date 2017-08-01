@@ -7,9 +7,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import java.io.Serializable;
 
 @Entity
-public class Address {
+public class Address implements Serializable {
+
+    private static final long serialVersionUID = 5582179651420194758L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
