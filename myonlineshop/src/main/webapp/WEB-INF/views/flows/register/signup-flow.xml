@@ -4,7 +4,11 @@
       xsi:schemaLocation="http://www.springframework.org/schema/webflow
                           http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
 
-    <view-state id="personal" view="flows/register/signup-personal"/>
+    <var name="user" class="com.myshop.shopbackend.dto.User"/>
+
+    <view-state id="personal" view="flows/register/signup-personal">
+        <transition on="billing" to="billing"/>
+    </view-state>
     <view-state id="billing" view="flows/register/signup-billing"/>
     <view-state id="confirm" view="flows/register/signup-confirm"/>
 
