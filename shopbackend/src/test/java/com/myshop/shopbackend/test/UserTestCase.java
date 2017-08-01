@@ -142,12 +142,12 @@ public class UserTestCase {
         Assert.assertEquals("Failed to add shipping address!", true, userDAO.addAddress(address));
     }*/
 
-    @Test
+    /*@Test
     public void testAddAddresses() {
         user = userDAO.getByEmail("petrov@gmail.com");
 
         Assert.assertEquals("Failed to get billing address!", 1, userDAO.getBillingAddress(user).getId());
 
         Assert.assertEquals("Failed to get shipping addresses", 2, userDAO.listShippingAddresses(user).size());
-    }
+    }*/
 }
