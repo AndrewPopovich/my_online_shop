@@ -14,7 +14,11 @@
         <transition on="personal" to="personal"/>
         <transition on="confirm" to="confirm"/>
     </view-state>
-    <view-state id="confirm" view="flows/register/signup-confirm"/>
+    <view-state id="confirm" view="flows/register/signup-confirm">
+        <transition on="personal" to="personal"/>
+        <transition on="confirm" to="confirm"/>
+        <transition on="success" to="success"/>
+    </view-state>
 
     <end-state id="home" view="externalRedirect:contextRelative:/"/>
     <end-state id="success" view="flows/register/signup-success"/>
