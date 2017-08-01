@@ -49,7 +49,16 @@
 <body>
 
 <div class="wrapper">
+    <%-- Navigation --%>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="">Home</a>
+            </div>
+        </div>
+    </nav>
 
+    <%-- Page content --%>
     <div class="content">
         <div class="container">
             <h3>Test flow!</h3>
