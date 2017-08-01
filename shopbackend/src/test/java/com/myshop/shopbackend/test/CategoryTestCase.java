@@ -16,7 +16,7 @@ public class CategoryTestCase {
 
     private Category category;
 
-    @BeforeClass
+    /*@BeforeClass
     public static void init() {
         context = new AnnotationConfigApplicationContext();
         context.scan("com.myshop.shopbackend");
@@ -33,7 +33,7 @@ public class CategoryTestCase {
         category.setImageURL("Cat_2.png");
 
         Assert.assertEquals("Something wrong!", true, categoryDAO.add(category));
-    }
+    }*/
 
     /*@Test
     public void testGetCategory() {

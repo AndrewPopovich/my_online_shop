@@ -21,14 +21,14 @@ public class UserTestCase {
 
     private Cart cart;
 
-    @BeforeClass
+    /*@BeforeClass
     public static void init() {
         context = new AnnotationConfigApplicationContext();
         context.scan("com.myshop.shopbackend");
         context.refresh();
 
         userDAO = (UserDAO) context.getBean("userDAO");
-    }
+    }*/
 
     /*@Test
     public void testUserAdd() {
