@@ -8,7 +8,12 @@
             </div>
 
             <div class="panel-body">
-
+                <div class="text-center">
+                    <h4>${registerModel.user.firstname} ${registerModel.user.firstname}</h4>
+                    <h5>Email: ${registerModel.user.email}</h5>
+                    <h5>Contact Number: ${registerModel.user.contactNumber}</h5>
+                    <h5>Role: ${registerModel.user.role}</h5>
+                </div>
             </div>
 
             <div class="panel-footer">
@@ -24,7 +29,17 @@
             </div>
 
             <div class="panel-body">
+                <div class="panel-body">
+                    <div class="text-center">
+                        <h5>Address Line One: ${registerModel.billing.addressLineOne}</h5>
+                        <h5>Address Line Two: ${registerModel.billing.addressLineTwo}</h5>
+                        <h5>City: ${registerModel.billing.city}</h5>
+                        <h5>Country: ${registerModel.billing.country}</h5>
+                        <h5>State: ${registerModel.billing.state}</h5>
+                        <h5>Postal code: ${registerModel.billing.postalCode}</h5>
 
+                    </div>
+                </div>
             </div>
 
             <div class="panel-footer">
