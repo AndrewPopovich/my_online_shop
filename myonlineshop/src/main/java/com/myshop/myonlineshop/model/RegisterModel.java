@@ -3,11 +3,15 @@ package com.myshop.myonlineshop.model;
 import com.myshop.shopbackend.dto.Address;
 import com.myshop.shopbackend.dto.User;
 
-public class RegisterModel {
+import java.io.Serializable;
+
+public class RegisterModel implements Serializable {
+
+    private static final long serialVersionUID = -1802670928616832187L;
 
     private User user;
 
-    private Address address;
+    private Address billing;
 
     public User getUser() {
         return user;
@@ -17,11 +21,11 @@ public class RegisterModel {
         this.user = user;
     }
 
-    public Address getAddress() {
-        return address;
+    public Address getBilling() {
+        return billing;
     }
 
-    public void setAddress(Address address) {
-        this.address = address;
+    public void setBilling(Address billing) {
+        this.billing = billing;
     }
 }

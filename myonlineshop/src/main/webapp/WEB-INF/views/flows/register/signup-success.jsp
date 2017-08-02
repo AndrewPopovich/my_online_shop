@@ -1,4 +1,3 @@
-<
 <%@include file="../shared/flows-header.jsp" %>
 
 <div class="container">

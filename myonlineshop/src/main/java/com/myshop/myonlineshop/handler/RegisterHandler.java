@@ -16,7 +16,7 @@ public class RegisterHandler {
         registerModel.setUser(user);
     }
 
-    public void addBilling(RegisterModel registerModel, Address address) {
-        registerModel.setAddress(address);
+    public void addBilling(RegisterModel registerModel, Address billing) {
+        registerModel.setBilling(billing);
     }
 }

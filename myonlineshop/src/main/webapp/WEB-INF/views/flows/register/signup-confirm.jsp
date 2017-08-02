@@ -9,7 +9,7 @@
 
             <div class="panel-body">
                 <div class="text-center">
-                    <h4>${registerModel.user.firstname} ${registerModel.user.firstname}</h4>
+                    <h4>${registerModel.user.firstName} ${registerModel.user.secondName}</h4>
                     <h5>Email: ${registerModel.user.email}</h5>
                     <h5>Contact Number: ${registerModel.user.contactNumber}</h5>
                     <h5>Role: ${registerModel.user.role}</h5>
