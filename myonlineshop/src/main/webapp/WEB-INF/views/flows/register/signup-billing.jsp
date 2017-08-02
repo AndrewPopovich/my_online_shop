@@ -41,13 +41,6 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label col-md-4" for="postalCode">Postal Code</label>
-                            <div class="col-md-8">
-                                <sf:input path="postalCode" type="text" class="form-control" placeholder="XXXXXX"/>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
                             <label class="control-label col-md-4" for="state">State</label>
                             <div class="col-md-8">
                                 <sf:input path="state" type="text" class="form-control" placeholder="Enter State Name"/>
@@ -57,7 +50,15 @@
                         <div class="form-group">
                             <label class="control-label col-md-4" for="country">Country</label>
                             <div class="col-md-8">
-                                <sf:input path="country" type="text" class="form-control" placeholder="Enter Country Name"/>
+                                <sf:input path="country" type="text" class="form-control"
+                                          placeholder="Enter Country Name"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-4" for="postalCode">Postal Code</label>
+                            <div class="col-md-8">
+                                <sf:input path="postalCode" type="text" class="form-control" placeholder="XXXXXX"/>
                             </div>
                         </div>
 
@@ -69,7 +70,7 @@
                             </div>
 
                             <div class="col-md-4 col-md-8">
-                            <button type="submit" class="btn btn-primary" name="_eventId_confirm">
+                                <button type="submit" class="btn btn-primary" name="_eventId_confirm">
                                     Next <span class="glyphicon glyphicon-chevron-right"/>
                                 </button>
                             </div>
