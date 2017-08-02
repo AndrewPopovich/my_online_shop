@@ -6,6 +6,8 @@ import com.myshop.shopbackend.dto.Address;
 import com.myshop.shopbackend.dto.Cart;
 import com.myshop.shopbackend.dto.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.binding.message.MessageBuilder;
+import org.springframework.binding.message.MessageContext;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -47,6 +49,29 @@ public class RegisterHandler {
 
         userDAO.addAddress(billing);
 
+        return transitionValue;
+    }
+
+    public String validateUser(User user, MessageContext messageContext) {
+        String transitionValue = "success";
+
+        if (!user.getPassword().equals(user.getConfirmPassword())) {
+            messageContext.addMessage(new MessageBuilder()
+                    .error()
+                    .source("confirmPassword")
+                    .defaultText("Password dos'n match the confirm password!")
+                    .build());
+            transitionValue = "failure";
+        }
+
+        if (userDAO.getByEmail(user.getEmail()) != null) {
+            messageContext.addMessage(new MessageBuilder()
+                    .error()
+                    .source("email")
+                    .defaultText("Email is already used!")
+                    .build());
+            transitionValue = "failure";
+        }
         return transitionValue;
     }
 }
