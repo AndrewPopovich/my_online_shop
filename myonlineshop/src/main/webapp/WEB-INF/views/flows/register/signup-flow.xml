@@ -21,6 +21,9 @@
     <view-state id="billing" view="flows/register/signup-billing" model="billing">
         <transition on="personal" to="personal"/>
         <transition on="confirm" to="confirm"/>
+        <on-exit>
+            <evaluate expression="registerHandler.addBilling(flowScope.registerModel, billing)"/>
+        </on-exit>
     </view-state>
     <view-state id="confirm" view="flows/register/signup-confirm">
         <transition on="personal" to="personal"/>

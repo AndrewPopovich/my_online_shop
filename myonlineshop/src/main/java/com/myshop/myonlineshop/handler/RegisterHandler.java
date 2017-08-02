@@ -1,6 +1,7 @@
 package com.myshop.myonlineshop.handler;
 
 import com.myshop.myonlineshop.model.RegisterModel;
+import com.myshop.shopbackend.dto.Address;
 import com.myshop.shopbackend.dto.User;
 import org.springframework.stereotype.Component;
 
@@ -13,5 +14,9 @@ public class RegisterHandler {
 
     public void addUser(RegisterModel registerModel, User user) {
         registerModel.setUser(user);
+    }
+
+    public void addBilling(RegisterModel registerModel, Address address) {
+        registerModel.setAddress(address);
     }
 }
