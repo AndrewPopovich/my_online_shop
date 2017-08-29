@@ -28,15 +28,13 @@
 
     <!-- Spring Security -->
     <listener>
-        <listener-class>
-            org.springframework.web.context.ContextLoaderListener
-        </listener-class>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
 
-    <contex-param>
+    <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>/WEB-INF/spring-security.xml</param-value>
-    </contex-param>
+    </context-param>
 
     <filter>
         <filter-name>springSecurityFilterChain</filter-name>

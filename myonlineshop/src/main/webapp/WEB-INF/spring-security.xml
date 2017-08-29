@@ -6,6 +6,17 @@
 		http://www.springframework.org/schema/security
 		http://www.springframework.org/schema/security/spring-security.xsd">
 
+    <http>
+        <intercept-url pattern="/**" access="hasRole('USER')"/>
+        <form-login/>
+        <logout/>
+    </http>
 
-
+    <authentication-manager>
+        <authentication-provider>
+            <user-service>
+                <user name="andrew" password="101994" authorities="ROLE_USER, ROLE_ADMIN" />
+            </user-service>
+        </authentication-provider>
+    </authentication-manager>
 </beans:beans>
