@@ -15,7 +15,6 @@
 ">
 
     <context:component-scan base-package="com.myshop.myonlineshop"/>
-    <context:component-scan base-package="com.myshop.shopbackend"/>
 
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/views/"/>
