@@ -84,8 +84,8 @@
                                     </div>
                                  </div>
                                  <div class="form-group">
-                                    <div class="coll-md-offset-4 col-md-8">
-                                        <input type="submit" value="login" class="btn btn-primary"/>
+                                    <div class="col-md-offset-4 col-md-8">
+                                        <input type="submit" value="Login" class="btn btn-primary"/>
                                     </div>
                                  </div>
                             </form>
