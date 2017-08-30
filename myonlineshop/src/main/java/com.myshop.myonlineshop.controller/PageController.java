@@ -62,6 +62,8 @@ public class PageController {
     public ModelAndView showAllProducts() {
         ModelAndView mv = new ModelAndView("page");
 
+        LOGGER.debug("In showAllProducts");
+
         mv.addObject("title", "All products");
         mv.addObject("categories", categoryDAO.list());
         mv.addObject("userClickAllProducts", true);
