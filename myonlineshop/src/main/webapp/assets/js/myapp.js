@@ -20,6 +20,16 @@ $(function () {
             break;
     }
 
+    var token = $('meta[name="_csrf"]').attr('content');
+    var header = $('meta[name="_csrf_header"]').attr('content');
+
+    if(token.length > 0 && header.length > 0) {
+        $(document).ajaxSend(function(e, xhr, options){
+            xhr.setRequestHeader(header, token);
+        });
+
+    }
+
     var $table = $('#productListTable');
 
     if ($table.length) {
@@ -256,7 +266,7 @@ $(function () {
 
     var $loginForm = $('#loginForm');
 
-        if ($loginForm.length) {
+    if ($loginForm.length) {
             $loginForm.validate({
                 rules: {
                     username: {
@@ -282,5 +292,5 @@ $(function () {
                     error.insertAfter(element);
                 }
             });
-        }
+    }
 });

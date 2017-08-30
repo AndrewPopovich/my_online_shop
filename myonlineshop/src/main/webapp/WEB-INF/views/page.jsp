@@ -17,6 +17,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+    <mate name="_csrf" content="${_csrf.token}">
+    <mate name="_csrf_header" content="${_csrf.headerName}">
 
     <title>My shop - ${title}</title>
 

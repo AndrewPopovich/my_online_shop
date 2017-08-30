@@ -21,6 +21,7 @@ public class FileUploadUtility {
         REAL_PATH = request.getSession().getServletContext().getRealPath("/assets/images/");
 
         LOGGER.info("REAL_PATH: " + REAL_PATH);
+        LOGGER.info("ABS_PATH: " + ABS_PATH);
 
         if (!new File(ABS_PATH).exists()) {
             new File(ABS_PATH).mkdirs();
@@ -31,7 +32,7 @@ public class FileUploadUtility {
         }
 
         try {
-            file.transferTo(new File(REAL_PATH + code + ".jpg"));
+            file.transferTo(new File(REAL_PATH + "/" + code + ".jpg"));
             file.transferTo(new File(ABS_PATH + code + ".jpg"));
         } catch (IOException e) {
             e.printStackTrace();
