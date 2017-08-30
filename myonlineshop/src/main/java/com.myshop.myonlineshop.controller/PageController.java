@@ -99,4 +99,11 @@ public class PageController {
 
         return mv;
     }
+
+    @RequestMapping(value = "/login")
+    public ModelAndView login() {
+        ModelAndView mv = new ModelAndView("login");
+        mv.addObject("title", "Login");
+        return mv;
+    }
 }

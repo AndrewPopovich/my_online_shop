@@ -14,7 +14,7 @@
 
     <http>
         <intercept-url pattern="/**" access="hasAuthority('USER')"/>
-        <form-login/>
+        <form-login login-page="/login"/>
         <logout/>
     </http>
 

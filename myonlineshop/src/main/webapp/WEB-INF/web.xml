@@ -6,7 +6,6 @@
     <display-name>Archetype Created Web Application</display-name>
 
     <!-- Configuring front-controller -->
-
     <servlet>
         <servlet-name>dispatcher</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
