@@ -83,6 +83,11 @@
                                         <input type="password" name="password" id="password" class="form-control"/>
                                     </div>
                                  </div>
+                                 <div class="form-group">
+                                    <div class="coll-md-offset-4 col-md-8">
+                                        <input type="submit" value="login" class="btn btn-primary"/>
+                                    </div>
+                                 </div>
                             </form>
                         </div>
 
