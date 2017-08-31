@@ -8,10 +8,14 @@ import com.myshop.shopbackend.dto.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.binding.message.MessageBuilder;
 import org.springframework.binding.message.MessageContext;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
 @Component
 public class RegisterHandler {
+
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Autowired
     private UserDAO userDAO;
@@ -39,6 +43,8 @@ public class RegisterHandler {
 
             user.setCart(cart);
         }
+
+        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 
         userDAO.addUser(user);
 
