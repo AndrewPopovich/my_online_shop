@@ -76,7 +76,7 @@ $(function () {
                     data: 'quantity',
                     mRender: function (data, type, row) {
                         if (data < 1) {
-                            return '<span style="color:#b20000">Out of Stock!</span>'
+                            return '<span style="color:#ff667d">Out of Stock!</span>'
                         }
                         return data;
                     }
@@ -146,7 +146,7 @@ $(function () {
                     data: 'quantity',
                     mRender: function (data, type, row) {
                         if (data < 1) {
-                            return '<span style="color:#b20000">Out of Stock!</span>'
+                            return '<span style="color:#ff667d">Out of Stock!</span>'
                         }
                         return data;
                     }

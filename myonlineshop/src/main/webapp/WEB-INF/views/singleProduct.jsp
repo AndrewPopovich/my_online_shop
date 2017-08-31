@@ -42,7 +42,7 @@
 
             <c:choose>
                 <c:when test="${product.quantity < 1}">
-                    <h6>Qty. Available: <span style="color:red">Out of Stock!</span></h6>
+                    <h6>Qty. Available: <span style="color:#ff667d">Out of Stock!</span></h6>
                 </c:when>
                 <c:otherwise>
                     <h6>Qty. Available: ${product.quantity}</h6>
