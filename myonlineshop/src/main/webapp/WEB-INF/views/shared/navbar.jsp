@@ -33,6 +33,7 @@
                 </security:authorize>
             </ul>
             <ul class="nav navbar-nav navbar-right">
+
             <security:authorize access="isAnonymous()">
                 <li id="register">
                     <a href="${contextRoot}/register">Sign Up</a>
@@ -40,7 +41,7 @@
                 <li id="login">
                     <a href="${contextRoot}/login">Login</a>
                 </li>
-                </security:authorize>
+            </security:authorize>
 
                 <security:authorize access="isAuthenticated()">
                 <li class="dropdown">
@@ -75,3 +76,7 @@
         </div>
     </div>
 </nav>
+
+<script>
+    window.userRole = '${userModel.role}';
+</script>
