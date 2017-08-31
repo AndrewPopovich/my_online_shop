@@ -10,7 +10,7 @@ public class UserModel implements Serializable {
 
     private int id;
 
-    private String fullname;
+    private String fullName;
 
     private String email;
 
@@ -26,12 +26,12 @@ public class UserModel implements Serializable {
         this.id = id;
     }
 
-    public String getFullname() {
-        return fullname;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setFullname(String fullname) {
-        this.fullname = fullname;
+    public void setFullName(String fullname) {
+        this.fullName = fullname;
     }
 
     public String getEmail() {
@@ -62,7 +62,7 @@ public class UserModel implements Serializable {
     public String toString() {
         return "UserModel{" +
                 "id=" + id +
-                ", fullname='" + fullname + '\'' +
+                ", fullName='" + fullName + '\'' +
                 ", email='" + email + '\'' +
                 ", role='" + role + '\'' +
                 ", cart=" + cart +
