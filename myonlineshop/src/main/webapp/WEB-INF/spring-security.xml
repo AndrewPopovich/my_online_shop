@@ -26,6 +26,7 @@
 
     <authentication-manager>
         <authentication-provider>
+            <password-encoder ref="passwordEncoder"/>
             <jdbc-user-service data-source-ref="dataSource"
                                users-by-username-query="select email, password, enabled from user_detail where email = ?"
                                authorities-by-username-query="select email, role from user_detail where email = ?"
