@@ -41,7 +41,7 @@
                     class="btn btn-default dropdown-toggle"
                     id="dropdownMenu1"
                     data-toggle="dropdown">
-                    Full Name
+                    ${userModel.fullName}
                     <span class="caret"></span>
                     </a>
 
@@ -49,8 +49,8 @@
                         <li>
                             <a href="${contextRoot}/cart">
                                 <span class="glyphicon glyphicon-shopping-cart"></span>
-                                <span class="badge">0</span>
-                                - &#8372; 0.0
+                                <span class="badge">${userModel.cart.cartLines}</span>
+                                - &#8372; ${userModel.cart.grandTotal}
                             </a>
                         </li>
 
