@@ -14,8 +14,9 @@
     <http pattern="/resources/**" security="none"/>
 
     <http>
-        <intercept-url pattern="/login" access="permitAll"/>
-        <intercept-url pattern="/**" access="hasAuthority('USER')"/>
+        <intercept-url pattern="/manage/**" access="hasAuthority('ADMIN')"/>
+        <intercept-url pattern="/cart/**" access="hasAuthority('USER')"/>
+        <intercept-url pattern="/**" access="permitAll"/>
         <form-login login-page="/login"/>
         <logout/>
     </http>
