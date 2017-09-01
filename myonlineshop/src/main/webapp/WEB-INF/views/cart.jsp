@@ -1,5 +1,10 @@
 <div class="container">
-	<table id="cart" class="table table-hover table-condensed">
+
+    <c:choose>
+
+        <c:when test="${not empty cartLines}">
+
+            <table id="cart" class="table table-hover table-condensed">
     				<thead>
 						<tr>
 							<th style="width:50%">Product</th>
@@ -42,5 +47,18 @@
 							<td><a href="#" class="btn btn-success btn-block">Checkout <span class="glyphicon glyphicon-chevron-right"></span></a></td>
 						</tr>
 					</tfoot>
-				</table>
+	        </table>
+        </c:when>
+
+        <c:otherwise>
+            <div class="jumbotron">
+                <div class="text-center">
+                    <h1>Your cart is empty!</h1>
+                </div>
+            </div>
+        </c:otherwise>
+
+    </c:choose>
+
+
 </div>
