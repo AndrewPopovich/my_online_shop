@@ -98,6 +98,19 @@ public class CartLineDAOImpl implements CartLineDAO {
 
     @Override
     public CartLine getByCartAndProduct(int cartId, int productId) {
-        return null;
+        CartLine result = null;
+
+        String selectByCartId = "FROM CartLine WHERE cartId = :cartId AND product.id = :productId";
+
+        try {
+            result = sessionFactory.getCurrentSession()
+                    .createQuery(selectByCartId, CartLine.class)
+                    .setParameter("cartId", cartId)
+                    .setParameter("productId", productId)
+                    .getSingleResult();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
     }
 }
