@@ -300,4 +300,28 @@ $(function () {
                 }
             });
     }
+
+    $('button[name="refreshCart"]').click(function(){
+    var cartLineId = $(this).attr('value');
+    var countElement = $('#count_' + cartLineId);
+
+    var originalCount = countElement.attr('value');
+    var currentCount = countElement.val();
+
+    if(currentCount !== originalCount) {
+        if (currentCount < 1 || currentCount > 5) {
+            countElement.val(originalCount);
+            bootbox.alert({
+                size: 'medium',
+                title: 'Error',
+                message: 'Product count should be minimun 1 and maximum 5!'
+            });
+        }
+    } else {
+        var updateUrl = window.contextRoot + '/cart/' + cartLineId + '/update?count=' + currentCount;
+
+        window.location.href = updateUrl;
+    }
+
+    });
 });
