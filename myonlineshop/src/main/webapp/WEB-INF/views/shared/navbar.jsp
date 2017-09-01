@@ -44,13 +44,15 @@
             </security:authorize>
 
                 <security:authorize access="isAuthenticated()">
-                <li class="dropdown">
+                <li class="dropdown" id="userCart">
                     <a href="javascript:void(0)"
-                    class="btn btn-default dropdown-toggle"
+                    class="btn btn dropdown-toggle"
                     id="dropdownMenu1"
                     data-toggle="dropdown">
+
                     ${userModel.fullName}
                     <span class="caret"></span>
+
                     </a>
 
                     <ul class="dropdown-menu">
