@@ -3,7 +3,6 @@ package com.myshop.shopbackend.daoimpl;
 import com.myshop.shopbackend.dao.CategoryDAO;
 import com.myshop.shopbackend.dto.Category;
 import org.hibernate.SessionFactory;
-import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;

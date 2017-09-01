@@ -18,7 +18,7 @@ public class CartLineDAOImpl implements CartLineDAO {
 
     @Override
     public CartLine get(int id) {
-        return null;
+        return sessionFactory.getCurrentSession().get(CartLine.class, id);
     }
 
     @Override
