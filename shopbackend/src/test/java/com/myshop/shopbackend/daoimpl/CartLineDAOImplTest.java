@@ -50,4 +50,28 @@ public class CartLineDAOImplTest {
         Assert.assertEquals("Something wrong with delete method", true, cartLineDAO.delete(cartLine));
     }
 
+    @Test
+    public void testListCartLine() {
+        CartLine cartLine = new CartLine();
+
+        Product product = productDAO.get(2);
+
+        cartLine.setCartId(1);
+        cartLine.setProduct(product);
+        cartLine.setBuyingPrice(product.getUnitPrice());
+        cartLine.setProductCount(1);
+        cartLine.setTotal(product.getUnitPrice());
+
+        cartLineDAO.add(cartLine);
+
+        cartLine.setCartId(1);
+        cartLine.setProduct(product);
+        cartLine.setBuyingPrice(product.getUnitPrice());
+        cartLine.setProductCount(1);
+        cartLine.setTotal(product.getUnitPrice());
+
+        cartLineDAO.add(cartLine);
+
+        Assert.assertEquals("Something wrong with list method", 2, cartLineDAO.list(1).size());
+    }
 }
