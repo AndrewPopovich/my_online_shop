@@ -23,7 +23,15 @@ public class CartLineDAOImpl implements CartLineDAO {
 
     @Override
     public boolean add(CartLine cartLine) {
-        return false;
+        boolean result = false;
+
+        try {
+            sessionFactory.getCurrentSession().persist(cartLine);
+            result = true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
     }
 
     @Override
