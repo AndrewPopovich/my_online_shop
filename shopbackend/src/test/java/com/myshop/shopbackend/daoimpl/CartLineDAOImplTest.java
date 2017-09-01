@@ -1,13 +1,23 @@
 package com.myshop.shopbackend.daoimpl;
 
-import org.junit.Before;
+import com.myshop.shopbackend.dao.CartLineDAO;
+import org.junit.BeforeClass;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class CartLineDAOImplTest {
-    @Before
+
+    private static AnnotationConfigApplicationContext context;
+
+    private static CartLineDAO cartLineDAO;
+
+    @BeforeClass
     public void setUp() throws Exception {
+        context = new AnnotationConfigApplicationContext();
+        context.scan("com.myshop.shopbackend");
+        context.refresh();
+
+        cartLineDAO = (CartLineDAO) context.getBean("cartLineDAO");
     }
 
     @Test
