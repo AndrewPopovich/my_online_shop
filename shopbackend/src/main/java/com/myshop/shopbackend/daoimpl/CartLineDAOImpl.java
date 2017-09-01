@@ -1,6 +1,7 @@
 package com.myshop.shopbackend.daoimpl;
 
 import com.myshop.shopbackend.dao.CartLineDAO;
+import com.myshop.shopbackend.dto.Cart;
 import com.myshop.shopbackend.dto.CartLine;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -108,6 +109,20 @@ public class CartLineDAOImpl implements CartLineDAO {
                     .setParameter("cartId", cartId)
                     .setParameter("productId", productId)
                     .getSingleResult();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+
+    @Override
+    public boolean updateCart(Cart cart) {
+        boolean result = false;
+
+        try {
+            sessionFactory.getCurrentSession().update(cart);
+            result = true;
         } catch (Exception e) {
             e.printStackTrace();
         }
