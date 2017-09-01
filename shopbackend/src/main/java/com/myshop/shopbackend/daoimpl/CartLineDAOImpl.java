@@ -2,6 +2,8 @@ package com.myshop.shopbackend.daoimpl;
 
 import com.myshop.shopbackend.dao.CartLineDAO;
 import com.myshop.shopbackend.dto.CartLine;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -10,6 +12,10 @@ import java.util.List;
 @Repository("cartLineDAO")
 @Transactional
 public class CartLineDAOImpl implements CartLineDAO {
+
+    @Autowired
+    private SessionFactory sessionFactory;
+
     @Override
     public CartLine get(int id) {
         return null;
