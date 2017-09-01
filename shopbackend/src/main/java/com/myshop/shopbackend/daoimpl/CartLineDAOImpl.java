@@ -88,7 +88,6 @@ public class CartLineDAOImpl implements CartLineDAO {
         try {
             result = sessionFactory.getCurrentSession()
                     .createQuery(selectByCartId, CartLine.class)
-                    .setParameter("available", true)
                     .setParameter("cartId", cartId)
                     .getResultList();
         } catch (Exception e) {

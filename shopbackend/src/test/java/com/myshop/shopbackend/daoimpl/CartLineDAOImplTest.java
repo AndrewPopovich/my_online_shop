@@ -75,4 +75,10 @@ public class CartLineDAOImplTest {
 
         Assert.assertEquals("Something wrong with list method", 8, cartLineDAO.list(1).size());
     }*/
+
+    @Test
+    public void testAvailableListCartLine() {
+        Assert.assertEquals("Something wrong with list method", 3, cartLineDAO.listAvailable(1).size());
+    }
+
 }
