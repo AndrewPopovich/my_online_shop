@@ -62,7 +62,7 @@ public class CartLineDAOImpl implements CartLineDAO {
     }
 
     @Override
-    public List<CartLine> list(int cartId) {
+    public List<CartLine> listAvailable(int cartId) {
         List<CartLine> result = null;
 
         String selectByCartId = "FROM CartLine WHERE available = :available AND cartId = :cartId";
@@ -77,5 +77,28 @@ public class CartLineDAOImpl implements CartLineDAO {
             e.printStackTrace();
         }
         return result;
+    }
+
+    @Override
+    public List<CartLine> list(int cartId) {
+        List<CartLine> result = null;
+
+        String selectByCartId = "FROM CartLine WHERE cartId = :cartId";
+
+        try {
+            result = sessionFactory.getCurrentSession()
+                    .createQuery(selectByCartId, CartLine.class)
+                    .setParameter("available", true)
+                    .setParameter("cartId", cartId)
+                    .getResultList();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    @Override
+    public CartLine getByCartAndProduct(int cartId, int productId) {
+        return null;
     }
 }

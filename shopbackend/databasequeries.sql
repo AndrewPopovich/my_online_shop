@@ -75,7 +75,7 @@ INSERT INTO product (code, name, brand, description, unit_price, quantity, is_ac
 VALUES ('PRDABCXYZDEFX', 'Dell Latitude E6510', 'dell', 'This is one of the best laptop series from dell that can be used!', 48000, 5, true, 1, 3 );
 
 CREATE TABLE cart_line (
-    id IDENTYTI,
+    id IDENTITY,
     cart_id int,
     total DECIMAL(10, 2),
     product_id int,
