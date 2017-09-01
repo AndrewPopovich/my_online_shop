@@ -27,7 +27,7 @@ public class CartLineDAOImplTest {
         productDAO = (ProductDAO) context.getBean("productDAO");
     }
 
-    @Test
+    /*@Test
     public void testCRUDCartLine() {
         CartLine cartLine = new CartLine();
 
@@ -48,7 +48,7 @@ public class CartLineDAOImplTest {
         Assert.assertEquals("Something wrong with update method", true, cartLineDAO.update(cartLine));
 
         Assert.assertEquals("Something wrong with delete method", true, cartLineDAO.delete(cartLine));
-    }
+    }*/
 
     /*@Test
     public void testListCartLine() {
@@ -76,9 +76,15 @@ public class CartLineDAOImplTest {
         Assert.assertEquals("Something wrong with list method", 8, cartLineDAO.list(1).size());
     }*/
 
-    @Test
+    /*@Test
     public void testAvailableListCartLine() {
-        Assert.assertEquals("Something wrong with list method", 3, cartLineDAO.listAvailable(1).size());
+        Assert.assertEquals("Something wrong with list available method", 3, cartLineDAO.listAvailable(1).size());
+    }*/
+
+    @Test
+    public void testGetByCartAndProduct() {
+        Assert.assertEquals("Something wrong with getByCartAndProduct mathod", 3,
+                cartLineDAO.getByCartAndProduct(1, 1).getId());
     }
 
 }

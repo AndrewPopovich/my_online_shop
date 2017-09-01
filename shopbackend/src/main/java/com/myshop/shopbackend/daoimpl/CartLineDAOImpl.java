@@ -65,11 +65,11 @@ public class CartLineDAOImpl implements CartLineDAO {
     public List<CartLine> listAvailable(int cartId) {
         List<CartLine> result = null;
 
-        String selectByCartId = "FROM CartLine WHERE available = :available AND cartId = :cartId";
+        String query = "FROM CartLine WHERE available = :available AND cartId = :cartId";
 
         try {
             result = sessionFactory.getCurrentSession()
-                    .createQuery(selectByCartId, CartLine.class)
+                    .createQuery(query, CartLine.class)
                     .setParameter("available", true)
                     .setParameter("cartId", cartId)
                     .getResultList();
@@ -83,11 +83,11 @@ public class CartLineDAOImpl implements CartLineDAO {
     public List<CartLine> list(int cartId) {
         List<CartLine> result = null;
 
-        String selectByCartId = "FROM CartLine WHERE cartId = :cartId";
+        String query = "FROM CartLine WHERE cartId = :cartId";
 
         try {
             result = sessionFactory.getCurrentSession()
-                    .createQuery(selectByCartId, CartLine.class)
+                    .createQuery(query, CartLine.class)
                     .setParameter("cartId", cartId)
                     .getResultList();
         } catch (Exception e) {
@@ -100,11 +100,11 @@ public class CartLineDAOImpl implements CartLineDAO {
     public CartLine getByCartAndProduct(int cartId, int productId) {
         CartLine result = null;
 
-        String selectByCartId = "FROM CartLine WHERE cartId = :cartId AND product.id = :productId";
+        String query = "FROM CartLine WHERE cartId = :cartId AND product.id = :productId";
 
         try {
             result = sessionFactory.getCurrentSession()
-                    .createQuery(selectByCartId, CartLine.class)
+                    .createQuery(query, CartLine.class)
                     .setParameter("cartId", cartId)
                     .setParameter("productId", productId)
                     .getSingleResult();
