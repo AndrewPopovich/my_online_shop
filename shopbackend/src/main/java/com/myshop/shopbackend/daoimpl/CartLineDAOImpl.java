@@ -115,7 +115,6 @@ public class CartLineDAOImpl implements CartLineDAO {
         return result;
     }
 
-
     @Override
     public boolean updateCart(Cart cart) {
         boolean result = false;

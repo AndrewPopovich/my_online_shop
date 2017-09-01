@@ -1,7 +1,6 @@
 package com.myshop.shopbackend.dao;
 
 import com.myshop.shopbackend.dto.Address;
-import com.myshop.shopbackend.dto.Cart;
 import com.myshop.shopbackend.dto.User;
 
 import java.util.List;

@@ -2,7 +2,6 @@ package com.myshop.shopbackend.daoimpl;
 
 import com.myshop.shopbackend.dao.UserDAO;
 import com.myshop.shopbackend.dto.Address;
-import com.myshop.shopbackend.dto.Cart;
 import com.myshop.shopbackend.dto.User;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
