@@ -1,4 +1,4 @@
-package com.myshop.shopbackend.test;
+package com.myshop.shopbackend.daoimpl;
 
 import com.myshop.shopbackend.dao.ProductDAO;
 import com.myshop.shopbackend.dto.Product;
