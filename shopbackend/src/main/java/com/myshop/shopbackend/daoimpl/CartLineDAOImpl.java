@@ -49,7 +49,16 @@ public class CartLineDAOImpl implements CartLineDAO {
 
     @Override
     public boolean delete(CartLine cartLine) {
-        return false;
+        boolean result = false;
+
+        try {
+            cartLine.setAvailable(false);
+
+            result = update(cartLine);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
     }
 
     @Override
