@@ -18,7 +18,7 @@ public class CartLineDAOImplTest {
     private static ProductDAO productDAO;
 
     @BeforeClass
-    public void setUp() throws Exception {
+    public static void setUp() throws Exception {
         context = new AnnotationConfigApplicationContext();
         context.scan("com.myshop.shopbackend");
         context.refresh();
@@ -53,6 +53,7 @@ public class CartLineDAOImplTest {
     @Test
     public void testListCartLine() {
         CartLine cartLine = new CartLine();
+        CartLine secondCartLine = new CartLine();
 
         Product product = productDAO.get(2);
 
@@ -64,14 +65,14 @@ public class CartLineDAOImplTest {
 
         cartLineDAO.add(cartLine);
 
-        cartLine.setCartId(1);
-        cartLine.setProduct(product);
-        cartLine.setBuyingPrice(product.getUnitPrice());
-        cartLine.setProductCount(1);
-        cartLine.setTotal(product.getUnitPrice());
+        secondCartLine.setCartId(1);
+        secondCartLine.setProduct(product);
+        secondCartLine.setBuyingPrice(product.getUnitPrice());
+        secondCartLine.setProductCount(1);
+        secondCartLine.setTotal(1);
 
-        cartLineDAO.add(cartLine);
+        cartLineDAO.add(secondCartLine);
 
-        Assert.assertEquals("Something wrong with list method", 2, cartLineDAO.list(1).size());
+        Assert.assertEquals("Something wrong with list method", 8, cartLineDAO.list(1).size());
     }
 }

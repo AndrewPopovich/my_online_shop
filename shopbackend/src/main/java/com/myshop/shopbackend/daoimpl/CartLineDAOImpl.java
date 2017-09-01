@@ -65,7 +65,7 @@ public class CartLineDAOImpl implements CartLineDAO {
     public List<CartLine> list(int cartId) {
         List<CartLine> result = null;
 
-        String selectByCartId = "FROM CartLine WHERE available = : available AND cartId = :cartId";
+        String selectByCartId = "FROM CartLine WHERE available = :available AND cartId = :cartId";
 
         try {
             result = sessionFactory.getCurrentSession()
