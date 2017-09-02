@@ -53,9 +53,9 @@ public class CartLineDAOImpl implements CartLineDAO {
         boolean result = false;
 
         try {
-            cartLine.setAvailable(false);
-
-            result = update(cartLine);
+            sessionFactory.getCurrentSession()
+                    .delete(cartLine);
+            result = true;
         } catch (Exception e) {
             e.printStackTrace();
         }
