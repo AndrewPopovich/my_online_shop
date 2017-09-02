@@ -1,6 +1,6 @@
 <div class="container">
 
-    <%-- Breadcrumb --%>
+<%-- Breadcrumb --%>
     <div class="row">
 
         <div class="col-xs-12">
@@ -15,76 +15,116 @@
 
     </div>
 
-    <%-- Display product image --%>
-    <div class="row">
+    <div class="card">
+        <div class="container-fliud">
+            <div class="wrapper row">
+                <div class="preview col-md-6">
 
-        <div class="col-xs-12 col-sm-4">
+                    <div class="preview-pic tab-content">
+                      <div class="tab-pane active" id="pic-1">
+                      <a href="#bigImg" data-toggle="modal">
+                          <img src="${images}/${product.code}.jpg" class="bigSingleImg">
+                      </a>
+                      </div>
+                      <div class="tab-pane" id="pic-2"><img src="${images}/${product.code}.jpg" class="bigSingleImg"/></div>
+                      <div class="tab-pane" id="pic-3"><img src="${images}/${product.code}.jpg" class="bigSingleImg"/></div>
+                      <div class="tab-pane" id="pic-4"><img src="${images}/${product.code}.jpg" class="bigSingleImg"/></div>
+                      <div class="tab-pane" id="pic-5"><img src="${images}/${product.code}.jpg" class="bigSingleImg"/></div>
+                    </div>
+                    <ul class="preview-thumbnail nav nav-tabs">
+                      <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src="${images}/${product.code}.jpg" class="adminDataTableImg"/></a></li>
+                      <li><a data-target="#pic-2" data-toggle="tab"><img src="${images}/${product.code}.jpg" class="adminDataTableImg"/></a></li>
+                      <li><a data-target="#pic-3" data-toggle="tab"><img src="${images}/${product.code}.jpg" class="adminDataTableImg"/></a></li>
+                      <li><a data-target="#pic-4" data-toggle="tab"><img src="${images}/${product.code}.jpg" class="adminDataTableImg"/></a></li>
+                      <li><a data-target="#pic-5" data-toggle="tab"><img src="${images}/${product.code}.jpg" class="adminDataTableImg"/></a></li>
+                    </ul>
 
-            <div class="thumbnail">
+                </div>
+                <div class="details col-md-6">
+                    <h3 class="product-title">${product.name}</h3>
+                    <div class="rating">
+                        <span class="review-no">${product.views} reviews</span>
+                    </div>
+                    <h4></h4>
 
-                <a href="#bigImg" data-toggle="modal">
-                    <img src="${images}/${product.code}.jpg" class="img img-responsive">
-                </a>
+                    <h4 class="price">Current price: <span>&#8372; ${product.unitPrice}</span></h4>
+                    <h2></h2>
+                    <div class="action">
+                        <c:choose>
+                            <c:when test="${product.quantity < 1}">
+                                <h6>Qty. Available: <span style="color:#ff667d">Out of Stock!</span></h6>
+                            </c:when>
+                            <c:otherwise>
+                                <h6>Qty. Available: ${product.quantity}</h6>
+                            </c:otherwise>
+                        </c:choose>
+
+                        <security:authorize access="hasAuthority('USER')">
+                        <c:choose>
+                            <c:when test="${product.quantity < 1}">
+                                <a href="javascript:void(0)" class="btn btn-success disable"><strike><span
+                                        class="glyphicon glyphicon-shopping-cart"></span>Add to Cart</strike></a>
+                            </c:when>
+                            <c:otherwise>
+                                <a href="${contextRoot}/cart/add/${product.id}/product" class="btn btn-success"><span
+                                        class="glyphicon glyphicon-shopping-cart"></span>Add to Cart</a>
+                            </c:otherwise>
+                        </c:choose>
+                        </security:authorize>
+
+                        <security:authorize access="hasAuthority('ADMIN')">
+                            <a href="${contextRoot}/manage/${product.id}/product" class="btn btn-warning"><span
+                                                        class="glyphicon glyphicon-pencil"></span>Edit</a>
+                        </security:authorize>
+
+                        <a href="${contextRoot}/show/all/products" class="btn btn-primary">Back</a>
+                    </div>
+                    <h2></h2>
+                    <p class="product-description">${product.description}</p>
+                </div>
             </div>
         </div>
-
-        <%-- Display product description --%>
-        <div class="col-xs-12 col-sm-8">
-
-            <h3>${product.name}</h3>
-            <hr/>
-
-            <p>${product.description}</p>
-            <hr/>
-
-            <h4>Price: <strong>&#8372; ${product.unitPrice}</strong></h4>
-            <hr/>
-
-            <c:choose>
-                <c:when test="${product.quantity < 1}">
-                    <h6>Qty. Available: <span style="color:#ff667d">Out of Stock!</span></h6>
-                </c:when>
-                <c:otherwise>
-                    <h6>Qty. Available: ${product.quantity}</h6>
-                </c:otherwise>
-            </c:choose>
-
-            <security:authorize access="hasAuthority('USER')">
-            <c:choose>
-                <c:when test="${product.quantity < 1}">
-                    <a href="javascript:void(0)" class="btn btn-success disable"><strike><span
-                            class="glyphicon glyphicon-shopping-cart"></span>Add to Cart</strike></a>
-                </c:when>
-                <c:otherwise>
-                    <a href="${contextRoot}/cart/add/${product.id}/product" class="btn btn-success"><span
-                            class="glyphicon glyphicon-shopping-cart"></span>Add to Cart</a>
-                </c:otherwise>
-            </c:choose>
-            </security:authorize>
-
-            <security:authorize access="hasAuthority('ADMIN')">
-                <a href="${contextRoot}/manage/${product.id}/product" class="btn btn-warning"><span
-                                            class="glyphicon glyphicon-pencil"></span>Edit</a>
-            </security:authorize>
-
-            <a href="${contextRoot}/show/all/products" class="btn btn-primary">Back</a>
-
-        </div>
-
     </div>
 
+<center>
     <div class="modal fade" id="bigImg" role="img" tabindex="-1">
-        <div class="modal-dialog" role="img">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">
-                        <span>&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <img src="${images}/${product.code}.jpg" class="img img-responsive">
-                </div>
-            </div>
-        </div>
+
+
+        <div class="row carousel-holder">
+
+                            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                                <ol class="carousel-indicators">
+                                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                                    <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+                                    <li data-target="#carousel-example-generic" data-slide-to="4"></li>
+                                </ol>
+                                <div class="carousel-inner">
+                                    <div class="item active">
+                                        <img class="slide-image modalImgSize" src="${images}/${product.code}.jpg" alt="" data-dismiss="modal">
+                                    </div>
+                                    <div class="item">
+                                        <img class="slide-image modalImgSize" src="${images}/${product.code}.jpg" alt="" data-dismiss="modal">
+                                    </div>
+                                    <div class="item">
+                                        <img class="slide-image modalImgSize" src="${images}/${product.code}.jpg" alt="" data-dismiss="modal">
+                                    </div>
+                                    <div class="item">
+                                        <img class="slide-image modalImgSize" src="${images}/${product.code}.jpg" alt="" data-dismiss="modal">
+                                    </div>
+                                    <div class="item">
+                                        <img class="slide-image modalImgSize" src="${images}/${product.code}.jpg" alt="" data-dismiss="modal">
+                                    </div>
+                                </div>
+                                <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                                    <span class="glyphicon glyphicon-chevron-left"></span>
+                                </a>
+                                <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                                    <span class="glyphicon glyphicon-chevron-right"></span>
+                                </a>
+                            </div>
+                    </div>
     </div>
+    </center>
 </div>
