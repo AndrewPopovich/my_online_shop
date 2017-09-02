@@ -92,49 +92,52 @@
             <%@include file="cart.jsp" %>
         </c:if>
 
+        <!-- Load only when user click login -->
+        <c:if test="${userClickLogin == true}">
+            <%@include file="login.jsp" %>
+        </c:if>
+
         <div class="modal fade" id="loginModal" role="dialog" tabindex="-1">
             <div class="modal-dialog" role="document">
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6 ">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <span class="glyphicon glyphicon-lock"></span> Login</div>
+                                    <div class="panel-body">
+                                        <form class="form-horizontal" role="form" action="${contextRoot}/login"
+                                        method="POST" class="form-horizontal" id="loginForm">
+                                            <div class="form-group">
+                                                <label for="inputEmail3" class="col-sm-3 control-label">
+                                                    Email</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" name="username" id="username" class="form-control" placeholder="Email" required/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="inputPassword3" class="col-sm-3 control-label">
+                                                    Password</label>
+                                                <div class="col-sm-9">
+                                                    <input type="password" name="password" id="password" class="form-control" placeholder="Password" required/>
+                                                </div>
+                                            </div>
 
-                    <div class="modal-body">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-6 ">
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">
-                                            <span class="glyphicon glyphicon-lock"></span> Login</div>
-                                        <div class="panel-body">
-                                            <form class="form-horizontal" role="form" action="${contextRoot}/login"
-                                            method="POST" class="form-horizontal" id="loginForm">
-                                                <div class="form-group">
-                                                    <label for="inputEmail3" class="col-sm-3 control-label">
-                                                        Email</label>
-                                                    <div class="col-sm-9">
-                                                        <input type="text" name="username" id="username" class="form-control" placeholder="Email" required/>
-                                                    </div>
+                                            <div class="form-group last">
+                                                <div class="col-sm-offset-3 col-sm-9">
+                                                   <input type="submit" value="Login" class="btn btn-primary"/>
+                                                   <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                                                 </div>
-                                                <div class="form-group">
-                                                    <label for="inputPassword3" class="col-sm-3 control-label">
-                                                        Password</label>
-                                                    <div class="col-sm-9">
-                                                        <input type="password" name="password" id="password" class="form-control" placeholder="Password" required/>
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group last">
-                                                    <div class="col-sm-offset-3 col-sm-9">
-                                                       <input type="submit" value="Login" class="btn btn-primary"/>
-                                                       <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                        <div class="panel-footer">
-                                            Not Registered? <a href="${contextRoot}/register">Register here</a></div>
+                                            </div>
+                                        </form>
                                     </div>
+                                    <div class="panel-footer">
+                                        Not Registered? <a href="${contextRoot}/register">Register here</a></div>
                                 </div>
                             </div>
                         </div>
-
+                    </div>
                 </div>
             </div>
         </div>
