@@ -56,15 +56,24 @@
             <div class="row">
                 <div class="col-xs-12">
                     <div class="jumbotron">
-                        <h1>${errorTitle}</h1>
+                    <center>
+                        <h1>
+                        Oops!</h1>
+                        <h2>${errorTitle}</h2>
                         <hr/>
                         <blockquote style="word-wrap:break-word">
                             ${errorDescription}
                         </blockquote>
+                        <div class="error-actions">
+                            <a href="${contextRoot}/home" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-home"></span>
+                                Take Me Home </a><a href="${contextRoot}/contact" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-envelope"></span> Contact Support </a>
+                        </div>
+                        </center>
                     </div>
                 </div>
             </div>
         </div>
+
     </div>
 
     <!-- Footer -->
