@@ -1,5 +1,13 @@
 <div class="container">
 
+    <c:if test="${not empty message}">
+        <div class="alert alert-success">
+            <h3 class="text-center">
+                ${message}
+            </h3>
+        </div>
+    </c:if>
+
     <c:choose>
 
         <c:when test="${not empty cartLines}">

@@ -316,11 +316,11 @@ $(function () {
                 title: 'Error',
                 message: 'Product count should be minimun 1 and maximum 5!'
             });
-        }
-    } else {
-        var updateUrl = window.contextRoot + '/cart/' + cartLineId + '/update?count=' + currentCount;
+        } else {
+            var updateUrl = window.contextRoot + '/cart/' + cartLineId + '/update?count=' + currentCount;
 
-        window.location.href = updateUrl;
+            window.location.href = updateUrl;
+        }
     }
 
     });
