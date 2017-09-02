@@ -2,6 +2,7 @@ package com.myshop.myonlineshop.service;
 
 import com.myshop.myonlineshop.model.UserModel;
 import com.myshop.shopbackend.dao.CartLineDAO;
+import com.myshop.shopbackend.dao.ProductDAO;
 import com.myshop.shopbackend.dto.Cart;
 import com.myshop.shopbackend.dto.CartLine;
 import com.myshop.shopbackend.dto.Product;
@@ -17,6 +18,9 @@ import java.util.List;
 public class CartService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CartService.class);
+
+    @Autowired
+    private ProductDAO productDAO;
 
     @Autowired
     private CartLineDAO cartLineDAO;
@@ -80,5 +84,33 @@ public class CartService {
 
             return "result=deleted";
         }
+    }
+
+    public String addCartLine(int productId) {
+        Cart cart = this.getCart();
+        CartLine cartLine = cartLineDAO.getByCartAndProduct(cart.getId(), productId);
+
+        if (cartLine == null) {
+            cartLine = new CartLine();
+
+            Product product = productDAO.get(productId);
+
+            cartLine.setCartId(cart.getId());
+            cartLine.setProduct(product);
+            cartLine.setBuyingPrice(product.getUnitPrice());
+            cartLine.setProductCount(1);
+            cartLine.setTotal(product.getUnitPrice());
+            cartLine.setAvailable(true);
+
+            cartLineDAO.add(cartLine);
+
+            cart.setCartLines(cart.getCartLines() + 1);
+            cart.setGrandTotal(cart.getGrandTotal() + cartLine.getTotal());
+
+            cartLineDAO.updateCart(cart);
+        } else {
+            updateCartLine(cartLine.getId(), cartLine.getProductCount() + 1);
+        }
+        return "result=added";
     }
 }
