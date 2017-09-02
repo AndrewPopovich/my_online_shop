@@ -39,8 +39,9 @@
                     <a href="${contextRoot}/register">Sign Up</a>
                 </li>
                 <li id="login">
-                    <a href="${contextRoot}/login">Login</a>
+                    <a href="#loginModal" data-toggle="modal"">Login</a>
                 </li>
+
             </security:authorize>
 
                 <security:authorize access="isAuthenticated()">
@@ -76,6 +77,7 @@
                 </security:authorize>
             </ul>
         </div>
+
     </div>
 </nav>
 

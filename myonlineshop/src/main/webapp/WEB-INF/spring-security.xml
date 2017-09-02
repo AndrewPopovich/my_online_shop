@@ -19,7 +19,7 @@
         <intercept-url pattern="/manage/**" access="hasAuthority('ADMIN')"/>
         <intercept-url pattern="/cart/**" access="hasAuthority('USER')"/>
         <intercept-url pattern="/**" access="permitAll"/>
-        <form-login login-page="/login"/>
+        <form-login login-page="/page"/>
         <access-denied-handler error-page="/access-denied"/>
     </http>
 

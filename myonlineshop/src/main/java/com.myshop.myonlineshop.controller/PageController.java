@@ -109,17 +109,12 @@ public class PageController {
         return mv;
     }
 
-    @RequestMapping(value = "/login")
-    public ModelAndView login(@RequestParam(name = "error", required = false) String error,
-                              @RequestParam(name = "logout", required = false) String logout) {
+    @RequestMapping(value = "/page")
+    public ModelAndView login(@RequestParam(name = "error", required = false) String error) {
         ModelAndView mv = new ModelAndView("login");
 
         if (error != null) {
             mv.addObject("message", "Invalid Username or Password!");
-        }
-
-        if (logout != null) {
-            mv.addObject("logout", "User has successfully logout!");
         }
 
         mv.addObject("title", "Login");
@@ -146,6 +141,6 @@ public class PageController {
             new SecurityContextLogoutHandler().logout(request, response, authentication);
         }
 
-        return "redirect:/login?logout";
+        return "redirect:/home/";
     }
 }
