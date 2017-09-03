@@ -114,19 +114,19 @@
                     </ol>
                     <div class="carousel-inner">
                         <div class="item active">
-                            <img class="slide-image modalImgSize" src="${images}/${product.code}/0.jpg" class="modalImgSize" alt="" data-dismiss="modal">
+                            <img class="slide-image modalImgSize" src="${images}/${product.code}/0.jpg" alt="" data-dismiss="modal">
                         </div>
                         <div class="item">
-                            <img class="slide-image modalImgSize" src="${images}/${product.code}/1.jpg" class="modalImgSize" alt="" data-dismiss="modal">
+                            <img class="slide-image modalImgSize" src="${images}/${product.code}/1.jpg" alt="" data-dismiss="modal">
                         </div>
                         <div class="item">
-                            <img class="slide-image modalImgSize" src="${images}/${product.code}/2.jpg" class="modalImgSize" alt="" data-dismiss="modal">
+                            <img class="slide-image modalImgSize" src="${images}/${product.code}/2.jpg" alt="" data-dismiss="modal">
                         </div>
                         <div class="item">
-                            <img class="slide-image modalImgSize" src="${images}/${product.code}/3.jpg" class="modalImgSize" alt="" data-dismiss="modal">
+                            <img class="slide-image modalImgSize" src="${images}/${product.code}/3.jpg" alt="" data-dismiss="modal">
                         </div>
                         <div class="item">
-                            <img class="slide-image modalImgSize" src="${images}/${product.code}/4.jpg" class="modalImgSize" alt="" data-dismiss="modal">
+                            <img class="slide-image modalImgSize" src="${images}/${product.code}/4.jpg" alt="" data-dismiss="modal">
                         </div>
                     </div>
                     <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">

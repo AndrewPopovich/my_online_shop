@@ -54,4 +54,25 @@
     </bean>
 
     <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"/>
+
+    <!-- Java Mail Configuration -->
+    <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        <property name="username" value="myonlineshop123321@gmail.com"/>
+        <property name="password" value="101994Vivcegovno"/>
+        <property name="port" value="465"/>
+        <property name="javaMailProperties">
+            <props>
+                <prop key="mail.smtp.auth">true</prop>
+                <prop key="mail.smtp.starttls.enable">true</prop>
+                <prop key="mail.smtp.starttls.required">true</prop>
+                <prop key="mail.smtp.socketFactory.class">javax.net.ssl.SSLSocketFactory</prop>
+                <prop key="mail.smtp.host">${java.mail.host}</prop>
+            </props>
+        </property>
+    </bean>
+
+    <!-- Velocity Email Template Config Bean -->
+    <bean id="velocityEngine" class="org.springframework.ui.velocity.VelocityEngineFactoryBean">
+        <property name="resourceLoaderPath" value="/WEB-INF/email-templates/"/>
+    </bean>
 </beans>
