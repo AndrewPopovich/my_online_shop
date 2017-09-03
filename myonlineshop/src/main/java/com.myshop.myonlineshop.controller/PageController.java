@@ -1,6 +1,7 @@
 package com.myshop.myonlineshop.controller;
 
 import com.myshop.myonlineshop.exception.ProductNotFoundException;
+import com.myshop.myonlineshop.service.EmailService;
 import com.myshop.shopbackend.dao.CategoryDAO;
 import com.myshop.shopbackend.dao.ProductDAO;
 import com.myshop.shopbackend.dto.Category;
@@ -30,6 +31,9 @@ public class PageController {
 
     @Autowired
     private ProductDAO productDAO;
+
+    @Autowired
+    EmailService emailService;
 
     @RequestMapping(value = {"/", "/home", "/index"})
     public ModelAndView index() {

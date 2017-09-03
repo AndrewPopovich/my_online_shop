@@ -66,7 +66,7 @@
                 <prop key="mail.smtp.starttls.enable">true</prop>
                 <prop key="mail.smtp.starttls.required">true</prop>
                 <prop key="mail.smtp.socketFactory.class">javax.net.ssl.SSLSocketFactory</prop>
-                <prop key="mail.smtp.host">${java.mail.host}</prop>
+                <prop key="mail.smtp.host">smtp.gmail.com</prop>
             </props>
         </property>
     </bean>
