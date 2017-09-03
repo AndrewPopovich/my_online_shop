@@ -67,7 +67,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label col-md-4" for="file">Select FIVE Images</label>
+                            <label class="control-label col-md-4" for="files">Select FIVE Images</label>
                             <div class="col-md-8">
                                   First file to upload: <input type="file" name="files"/>
                                   Second file to upload: <input type="file" name="files"/>

@@ -20,18 +20,23 @@ public class FileUploadUtility {
     public static void uploadFile(HttpServletRequest request, List<MultipartFile> files, String code) {
         LOGGER.debug("In uploadFile method");
 
-        realPath = ABS_PATH + code + "/";
+        realPath = request.getSession().getServletContext().getRealPath("/assets/images/");
 
-        File dir = new File(realPath);
+        File dir = new File(ABS_PATH + code + "/");
 
-        if (!new File(realPath).exists()) {
-            new File(realPath).mkdirs();
+        if (!new File(realPath + "/" + code + "/").exists()) {
+            new File(realPath + "/" + code + "/").mkdirs();
+        }
+
+        if (!new File(ABS_PATH + code + "/").exists()) {
+            new File(ABS_PATH + code + "/").mkdirs();
         }
 
         int count = 0;
         try {
             for (MultipartFile f : files) {
-                f.transferTo(new File(realPath + count + ".jpg"));
+                f.transferTo(new File(realPath + "/" + code + "/" + count + ".jpg"));
+                f.transferTo(new File(ABS_PATH + code + "/" + count + ".jpg"));
                 count++;
             }
         } catch (IOException e) {

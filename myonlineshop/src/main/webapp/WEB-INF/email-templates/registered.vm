@@ -34,7 +34,7 @@
                     </tr>
                     <tr>
                         <td style="font-size: 12px; font-family: arial, sans-serif; color: #000000; text-align: left;">
-                            <a href="$urljavastudy">Click mouse to visit our Online Shop!</a>
+                            <a href="${contextRoot}/home">Click mouse to visit our Online Shop!</a>
                             <br />
                             <i>Or you copy and paste the following link in your browser's URL box</i>
                             <br /><br />

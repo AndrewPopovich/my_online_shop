@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -60,19 +61,28 @@ public class ManagementController {
         return mv;
     }
 
+    private boolean checkFilesIsEmpty(List<MultipartFile> files) {
+        int count = 0;
+
+        for (MultipartFile file : files) {
+            if (file.getSize() != 0) {
+                count++;
+            }
+        }
+        return count == 0;
+    }
+
     @RequestMapping(value = "/products", method = RequestMethod.POST)
-    public String handleProductSubmission(@Valid @ModelAttribute("product") Product mProduct, BindingResult results, Model model,
-                                          HttpServletRequest request) {
+    public String handleProductSubmission(@Valid @ModelAttribute("product") Product mProduct, BindingResult results,
+                                          Model model, HttpServletRequest request) {
         if (mProduct.getId() == 0) {
             new ProductValidator().validate(mProduct, results);
         } else {
-            if (!mProduct.getFiles().isEmpty()) {
+            if (!checkFilesIsEmpty(mProduct.getFiles())) {
                 new ProductValidator().validate(mProduct, results);
             }
         }
         LOGGER.debug(mProduct.toString() + "mProduct file = " + mProduct.getFiles());
-
-        FileUploadUtility.uploadFile(request, mProduct.getFiles(), mProduct.getCode());
 
         if (results.hasErrors()) {
             LOGGER.info("Validator has errors!" + results);
@@ -84,7 +94,7 @@ public class ManagementController {
             return "page";
         }
 
-        if (!mProduct.getFiles().isEmpty()) {
+        if (checkFilesIsEmpty(mProduct.getFiles())) {
             FileUploadUtility.uploadFile(request, mProduct.getFiles(), mProduct.getCode());
         }
 
