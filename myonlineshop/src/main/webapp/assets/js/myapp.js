@@ -58,7 +58,7 @@ $(function () {
                     mRender: function (data, type, row) {
                         var str = '';
                         str += '<a href="' + window.contextRoot + '/show/' + row.id + '/product">';
-                        str += '<img src="' + window.contextRoot + '/resources/images/' + data + '.jpg" class="dataTableImg"/>';
+                        str += '<img src="' + window.contextRoot + '/resources/images/' + data + '/0.jpg" class="dataTableImg"/>';
                         str += '</a>';
                         return str;
                     }
@@ -136,7 +136,7 @@ $(function () {
                     data: 'code',
                     bSortable: false,
                     mRender: function (data, type, row) {
-                        return '<img src="' + window.contextRoot + '/resources/images/' + data + '.jpg" class="adminDataTableImg"/>'
+                        return '<img src="' + window.contextRoot + '/resources/images/' + data + '/0.jpg" class="adminDataTableImg"/>'
                     }
                 },
                 {

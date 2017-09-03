@@ -19,24 +19,39 @@
         <div class="container-fliud">
             <div class="wrapper row">
                 <div class="preview col-md-6">
-
                     <div class="preview-pic tab-content">
                       <div class="tab-pane active" id="pic-1">
                       <a href="#bigImg" data-toggle="modal">
-                          <img src="${images}/${product.code}.jpg" class="bigSingleImg">
+                          <img src="${images}/${product.code}/0.jpg" class="bigSingleImg">
                       </a>
                       </div>
-                      <div class="tab-pane" id="pic-2"><img src="${images}/${product.code}.jpg" class="bigSingleImg"/></div>
-                      <div class="tab-pane" id="pic-3"><img src="${images}/${product.code}.jpg" class="bigSingleImg"/></div>
-                      <div class="tab-pane" id="pic-4"><img src="${images}/${product.code}.jpg" class="bigSingleImg"/></div>
-                      <div class="tab-pane" id="pic-5"><img src="${images}/${product.code}.jpg" class="bigSingleImg"/></div>
+                      <div class="tab-pane" id="pic-2">
+                      <a href="#bigImg" data-toggle="modal">
+                        <img src="${images}/${product.code}/1.jpg" class="bigSingleImg"/>
+                      </a>
+                      </div>
+                      <div class="tab-pane" id="pic-3">
+                      <a href="#bigImg" data-toggle="modal">
+                        <img src="${images}/${product.code}/2.jpg" class="bigSingleImg"/>
+                      </a>
+                      </div>
+                      <div class="tab-pane" id="pic-4">
+                      <a href="#bigImg" data-toggle="modal">
+                        <img src="${images}/${product.code}/3.jpg" class="bigSingleImg"/>
+                      </a>
+                      </div>
+                        <div class="tab-pane" id="pic-5">
+                        <a href="#bigImg" data-toggle="modal">
+                            <img src="${images}/${product.code}/4.jpg" class="bigSingleImg"/>
+                        </a>
+                        </div>
                     </div>
                     <ul class="preview-thumbnail nav nav-tabs">
-                      <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src="${images}/${product.code}.jpg" class="adminDataTableImg"/></a></li>
-                      <li><a data-target="#pic-2" data-toggle="tab"><img src="${images}/${product.code}.jpg" class="adminDataTableImg"/></a></li>
-                      <li><a data-target="#pic-3" data-toggle="tab"><img src="${images}/${product.code}.jpg" class="adminDataTableImg"/></a></li>
-                      <li><a data-target="#pic-4" data-toggle="tab"><img src="${images}/${product.code}.jpg" class="adminDataTableImg"/></a></li>
-                      <li><a data-target="#pic-5" data-toggle="tab"><img src="${images}/${product.code}.jpg" class="adminDataTableImg"/></a></li>
+                      <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src="${images}/${product.code}/0.jpg" class="adminDataTableImg"/></a></li>
+                      <li><a data-target="#pic-2" data-toggle="tab"><img src="${images}/${product.code}/1.jpg" class="adminDataTableImg"/></a></li>
+                      <li><a data-target="#pic-3" data-toggle="tab"><img src="${images}/${product.code}/2.jpg" class="adminDataTableImg"/></a></li>
+                      <li><a data-target="#pic-4" data-toggle="tab"><img src="${images}/${product.code}/3.jpg" class="adminDataTableImg"/></a></li>
+                      <li><a data-target="#pic-5" data-toggle="tab"><img src="${images}/${product.code}/4.jpg" class="adminDataTableImg"/></a></li>
                     </ul>
 
                 </div>
@@ -86,45 +101,42 @@
         </div>
     </div>
 
-<center>
-    <div class="modal fade" id="bigImg" role="img" tabindex="-1">
-
-
-        <div class="row carousel-holder">
-
-                            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                                <ol class="carousel-indicators">
-                                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                                    <li data-target="#carousel-example-generic" data-slide-to="3"></li>
-                                    <li data-target="#carousel-example-generic" data-slide-to="4"></li>
-                                </ol>
-                                <div class="carousel-inner">
-                                    <div class="item active">
-                                        <img class="slide-image modalImgSize" src="${images}/${product.code}.jpg" alt="" data-dismiss="modal">
-                                    </div>
-                                    <div class="item">
-                                        <img class="slide-image modalImgSize" src="${images}/${product.code}.jpg" alt="" data-dismiss="modal">
-                                    </div>
-                                    <div class="item">
-                                        <img class="slide-image modalImgSize" src="${images}/${product.code}.jpg" alt="" data-dismiss="modal">
-                                    </div>
-                                    <div class="item">
-                                        <img class="slide-image modalImgSize" src="${images}/${product.code}.jpg" alt="" data-dismiss="modal">
-                                    </div>
-                                    <div class="item">
-                                        <img class="slide-image modalImgSize" src="${images}/${product.code}.jpg" alt="" data-dismiss="modal">
-                                    </div>
-                                </div>
-                                <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-                                    <span class="glyphicon glyphicon-chevron-left"></span>
-                                </a>
-                                <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-                                    <span class="glyphicon glyphicon-chevron-right"></span>
-                                </a>
-                            </div>
+    <center>
+        <div class="modal fade" id="bigImg" role="img" tabindex="-1">
+            <div class="row carousel-holder">
+                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="4"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <img class="slide-image modalImgSize" src="${images}/${product.code}/0.jpg" class="modalImgSize" alt="" data-dismiss="modal">
+                        </div>
+                        <div class="item">
+                            <img class="slide-image modalImgSize" src="${images}/${product.code}/1.jpg" class="modalImgSize" alt="" data-dismiss="modal">
+                        </div>
+                        <div class="item">
+                            <img class="slide-image modalImgSize" src="${images}/${product.code}/2.jpg" class="modalImgSize" alt="" data-dismiss="modal">
+                        </div>
+                        <div class="item">
+                            <img class="slide-image modalImgSize" src="${images}/${product.code}/3.jpg" class="modalImgSize" alt="" data-dismiss="modal">
+                        </div>
+                        <div class="item">
+                            <img class="slide-image modalImgSize" src="${images}/${product.code}/4.jpg" class="modalImgSize" alt="" data-dismiss="modal">
+                        </div>
                     </div>
-    </div>
+                    <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                    <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
     </center>
 </div>

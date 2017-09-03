@@ -7,6 +7,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 public class FileUploadUtility {
 
@@ -14,26 +15,25 @@ public class FileUploadUtility {
 
     private static final String ABS_PATH = "/Users/andrew/myprojects/my_online_shop/myonlineshop/src/main/webapp/assets/images/";
 
-    private static String REAL_PATH = "";
+    private static String realPath = "";
 
-    public static void uploadFile(HttpServletRequest request, MultipartFile file, String code) {
+    public static void uploadFile(HttpServletRequest request, List<MultipartFile> files, String code) {
+        LOGGER.debug("In uploadFile method");
 
-        REAL_PATH = request.getSession().getServletContext().getRealPath("/assets/images/");
+        realPath = ABS_PATH + code + "/";
 
-        LOGGER.info("REAL_PATH: " + REAL_PATH);
-        LOGGER.info("ABS_PATH: " + ABS_PATH);
+        File dir = new File(realPath);
 
-        if (!new File(ABS_PATH).exists()) {
-            new File(ABS_PATH).mkdirs();
+        if (!new File(realPath).exists()) {
+            new File(realPath).mkdirs();
         }
 
-        if (!new File(REAL_PATH).exists()) {
-            new File(REAL_PATH).mkdirs();
-        }
-
+        int count = 0;
         try {
-            file.transferTo(new File(REAL_PATH + "/" + code + ".jpg"));
-            file.transferTo(new File(ABS_PATH + code + ".jpg"));
+            for (MultipartFile f : files) {
+                f.transferTo(new File(realPath + count + ".jpg"));
+                count++;
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }

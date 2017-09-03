@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Transient;
 import javax.validation.constraints.Min;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -58,7 +59,7 @@ public class Product {
     private int views;
 
     @Transient
-    private MultipartFile file;
+    private List<MultipartFile> files;
 
     public Product() {
         code = "PRD" + UUID.randomUUID().toString().substring(26).toUpperCase();
@@ -174,11 +175,11 @@ public class Product {
         this.views = views;
     }
 
-    public MultipartFile getFile() {
-        return file;
+    public List<MultipartFile> getFiles() {
+        return files;
     }
 
-    public void setFile(MultipartFile file) {
-        this.file = file;
+    public void setFiles(List<MultipartFile> files) {
+        this.files = files;
     }
 }

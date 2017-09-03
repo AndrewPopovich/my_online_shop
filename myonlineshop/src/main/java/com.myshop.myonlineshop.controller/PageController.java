@@ -117,7 +117,6 @@ public class PageController {
         if (error != null) {
             mv.addObject("message", "Invalid Username or Password!");
         }
-
         mv.addObject("title", "Login");
         return mv;
     }
@@ -141,7 +140,12 @@ public class PageController {
         if (authentication != null) {
             new SecurityContextLogoutHandler().logout(request, response, authentication);
         }
+        return "redirect:/home/";
+    }
 
+    @RequestMapping(value = "multipart/form-data")
+    public String test() {
+        LOGGER.debug("Int test!");
         return "redirect:/home/";
     }
 }

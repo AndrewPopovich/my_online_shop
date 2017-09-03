@@ -14,15 +14,18 @@ public class ProductValidator implements Validator {
     public void validate(Object target, Errors errors) {
         Product product = (Product) target;
 
-        if (product.getFile() == null || product.getFile().getOriginalFilename().equals("")) {
-            errors.rejectValue("file", null, "Please select image file to upload!");
+        if (product.getFiles() == null || product.getFiles().size() != 5) {
+            errors.rejectValue("file", null, "Please select five image files for upload!");
             return;
         }
 
-        if (!(product.getFile().getContentType().equals("image/jpeg") ||
-                product.getFile().getContentType().equals("image/png") ||
-                product.getFile().getContentType().equals("image/gif"))) {
-            errors.rejectValue("file", null, "Please use only image file for upload!");
-        }
+        product.getFiles().forEach(f -> {
+            if (!(f.getContentType().equals("image/jpeg") ||
+                    f.getContentType().equals("image/png") ||
+                    f.getContentType().equals("image/gif"))) {
+
+                errors.rejectValue("file", null, "Please use only image files for upload!");
+            }
+        });
     }
 }

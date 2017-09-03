@@ -66,7 +66,6 @@ public class CartService {
 
             return "result=updated";
         }
-
     }
 
     public String deleteCartLine(int cartLineId) {

@@ -25,7 +25,6 @@ public class GlobalController {
         if (httpSession.getAttribute("userModel") == null) {
             return createUserModel();
         }
-
         return (UserModel) httpSession.getAttribute("userModel");
     }
 

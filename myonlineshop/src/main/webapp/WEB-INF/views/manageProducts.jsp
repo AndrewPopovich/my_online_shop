@@ -19,7 +19,7 @@
 
                     <sf:form class="form-horizontal" modelAttribute="product"
                              action="${contextRoot}/manage/products" method="POST"
-                             enctype="multipart/form-data">
+                             enctype="multipart/form-data" >
                         <div class="form-group">
                             <label class="control-label col-md-4" for="name">Enter Product Name</label>
                             <div class="col-md-8">
@@ -67,10 +67,14 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label col-md-4" for="file">Select an Image</label>
+                            <label class="control-label col-md-4" for="file">Select FIVE Images</label>
                             <div class="col-md-8">
-                                <sf:input type="file" path="file" id="file" class="form-control"/>
-                                <sf:errors path="file" cssClass="help-block" element="em"/>
+                                  First file to upload: <input type="file" name="files"/>
+                                  Second file to upload: <input type="file" name="files"/>
+                                  Third file to upload: <input type="file" name="files"/>
+                                  Fourth file to upload: <input type="file" name="files"/>
+                                  Fifth file to upload: <input type="file" name="files"/>
+                                  <sf:errors path="files" cssClass="help-block" element="em"/>
                             </div>
                         </div>
 

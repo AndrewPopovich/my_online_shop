@@ -63,17 +63,19 @@ public class ManagementController {
     @RequestMapping(value = "/products", method = RequestMethod.POST)
     public String handleProductSubmission(@Valid @ModelAttribute("product") Product mProduct, BindingResult results, Model model,
                                           HttpServletRequest request) {
-
         if (mProduct.getId() == 0) {
             new ProductValidator().validate(mProduct, results);
         } else {
-            if (!mProduct.getFile().getOriginalFilename().equals("")) {
+            if (!mProduct.getFiles().isEmpty()) {
                 new ProductValidator().validate(mProduct, results);
             }
         }
+        LOGGER.debug(mProduct.toString() + "mProduct file = " + mProduct.getFiles());
+
+        FileUploadUtility.uploadFile(request, mProduct.getFiles(), mProduct.getCode());
 
         if (results.hasErrors()) {
-            LOGGER.info("Validator has errors!");
+            LOGGER.info("Validator has errors!" + results);
 
             model.addAttribute("userClickManageProducts", true);
             model.addAttribute("title", "Manage Products");
@@ -82,10 +84,8 @@ public class ManagementController {
             return "page";
         }
 
-        LOGGER.debug(mProduct.toString());
-
-        if (!mProduct.getFile().getOriginalFilename().equals("")) {
-            FileUploadUtility.uploadFile(request, mProduct.getFile(), mProduct.getCode());
+        if (!mProduct.getFiles().isEmpty()) {
+            FileUploadUtility.uploadFile(request, mProduct.getFiles(), mProduct.getCode());
         }
 
         if (mProduct.getId() == 0) {
@@ -93,14 +93,12 @@ public class ManagementController {
         } else {
             productDAO.update(mProduct);
         }
-
         return "redirect:/manage/products?operation=product";
     }
 
     @RequestMapping(value = "/products/{id}/activation", method = RequestMethod.POST)
     @ResponseBody
     public String handleProductActivation(@PathVariable int id) {
-
         Product product = productDAO.get(id);
 
         boolean isActive = product.isActive();
@@ -125,13 +123,11 @@ public class ManagementController {
 
         mv.addObject("product", product);
 
-
         return mv;
     }
 
     @RequestMapping(value = "/category", method = RequestMethod.POST)
     public String handleCategorySubmission(@ModelAttribute("category") Category category) {
-
         categoryDAO.add(category);
 
         return "redirect:/manage/products?operation=category";
