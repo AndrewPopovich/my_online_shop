@@ -39,7 +39,7 @@ public class PageController {
     @Value("${page.title.login}")
     private String login;
 
-    @Value("${page.title.accessDenied}")
+    @Value("${page.message.accessDenied}")
     private String accessDenied;
 
     @Value("${page.jsp.page}")
