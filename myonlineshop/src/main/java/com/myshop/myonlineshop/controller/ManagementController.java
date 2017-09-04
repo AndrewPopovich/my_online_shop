@@ -9,6 +9,7 @@ import com.myshop.shopbackend.dto.Product;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -29,6 +30,27 @@ import java.util.List;
 @RequestMapping("/manage")
 public class ManagementController {
 
+    @Value("${manage.title.manageProducts}")
+    private String manageProducts;
+
+    @Value("${manage.message.productSubmmitSuccess}")
+    private String productSubmmitSuccess;
+
+    @Value("${manage.message.categorySubmmitSuccess}")
+    private String categorySubmmitSuccess;
+
+    @Value("${manage.message.validatorError}")
+    private String validatorError;
+
+    @Value("${page.jsp.page}")
+    private String page;
+
+    @Value("${manage.message.deactivate}")
+    private String deactivate;
+
+    @Value("${manage.message.activate}")
+    private String activate;
+
     @Autowired
     private ProductDAO productDAO;
 
@@ -42,7 +64,7 @@ public class ManagementController {
         ModelAndView mv = new ModelAndView("page");
 
         mv.addObject("userClickManageProducts", true);
-        mv.addObject("title", "Manage Products");
+        mv.addObject("title", manageProducts);
 
         Product nProduct = new Product();
 
@@ -52,10 +74,10 @@ public class ManagementController {
         mv.addObject("product", nProduct);
 
         if (operation != null && operation.equals("product")) {
-            mv.addObject("message", "Product Submitted Successfully!");
+            mv.addObject("message", productSubmmitSuccess);
         } else {
             if (operation != null && operation.equals("category")) {
-                mv.addObject("message", "Category Submitted Successfully!");
+                mv.addObject("message", categorySubmmitSuccess);
             }
         }
         return mv;
@@ -88,10 +110,10 @@ public class ManagementController {
             LOGGER.info("Validator has errors!" + results);
 
             model.addAttribute("userClickManageProducts", true);
-            model.addAttribute("title", "Manage Products");
-            model.addAttribute("message", "Validation failed for Product Submission");
+            model.addAttribute("title", manageProducts);
+            model.addAttribute("message", validatorError);
 
-            return "page";
+            return page;
         }
 
         if (checkFilesIsEmpty(mProduct.getFiles())) {
@@ -114,13 +136,11 @@ public class ManagementController {
         boolean isActive = product.isActive();
 
         product.setActive(!isActive);
-
         productDAO.update(product);
 
         LOGGER.debug("Activation/Deactivation. Before: " + isActive + "/ After: " + product.isActive());
 
-        return (isActive) ? "You are successfully deactivate the product with id: " + product.getId() + "!" :
-                "You are successfully activate the product with id: " + product.getId() + "!";
+        return (isActive) ? deactivate + product.getId() + "!" : activate + product.getId() + "!";
     }
 
     @RequestMapping(value = "{id}/product", method = RequestMethod.GET)
@@ -128,7 +148,7 @@ public class ManagementController {
         ModelAndView mv = new ModelAndView("page");
 
         mv.addObject("userClickManageProducts", true);
-        mv.addObject("title", "Manage Products");
+        mv.addObject("title", manageProducts);
         Product product = productDAO.get(id);
 
         mv.addObject("product", product);
