@@ -24,7 +24,6 @@ import javax.servlet.http.HttpServletResponse;
 
 @Controller
 public class PageController {
-
     @Value("${page.title.allProducts}")
     private String allProductsTitle;
 
