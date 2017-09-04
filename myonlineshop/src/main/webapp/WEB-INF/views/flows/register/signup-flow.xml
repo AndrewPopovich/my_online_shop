@@ -4,8 +4,8 @@
       xsi:schemaLocation="http://www.springframework.org/schema/webflow
                           http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
 
-    <var name="user" class="com.myshop.shopbackend.dto.User"/>
-    <var name="billing" class="com.myshop.shopbackend.dto.Address"/>
+    <var name="user" class="${web.flow.dto.user}"/>
+    <var name="billing" class="${web.flow.dto.billing}"/>
 
     <!-- returning and adding in flow registerModel instance -->
     <on-start>

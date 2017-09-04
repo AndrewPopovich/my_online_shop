@@ -28,7 +28,7 @@
 						<tr>
 							<td data-th="Product">
 								<div class="row">
-									<div class="col-sm-2 hidden-xs"><img src="${images}/${cartLine.product.code}.jpg" alt="${cartLine.product.name}" class="img-responsive cartImg"/></div>
+									<div class="col-sm-2 hidden-xs"><img src="${images}/${cartLine.product.code}/0.jpg" alt="${cartLine.product.name}" class="img-responsive cartImg"/></div>
 									<div class="col-sm-10">
 										<h4 class="nomargin">${cartLine.product.name}
 										<c:if test="${cartLine.available == false}">

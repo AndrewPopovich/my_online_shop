@@ -1,6 +1,8 @@
-package com.myshop.myonlineshop.com.myshop.myonlineshop.validator;
+package com.myshop.myonlineshop.validator;
 
 import com.myshop.shopbackend.dto.Product;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 import org.springframework.web.multipart.MultipartFile;
@@ -8,6 +10,9 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.List;
 
 public class ProductValidator implements Validator {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(ProductValidator.class);
+
     @Override
     public boolean supports(Class<?> clazz) {
         return Product.class.equals(clazz);
