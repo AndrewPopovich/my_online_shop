@@ -1,10 +1,10 @@
 $(function () {
 
     switch (menu) {
-        case 'About as':
+        case 'About':
             $('#about').addClass('active');
             break;
-        case 'Our contact':
+        case 'Contact':
             $('#contact').addClass('active');
             break;
         case 'All products':

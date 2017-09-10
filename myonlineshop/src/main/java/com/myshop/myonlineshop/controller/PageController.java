@@ -52,7 +52,7 @@ public class PageController {
     public ModelAndView about() {
         ModelAndView mv = new ModelAndView("page");
 
-        mv.addObject("title", "About as");
+        mv.addObject("title", "About");
         mv.addObject("userClickAbout", true);
 
         return mv;
@@ -62,7 +62,7 @@ public class PageController {
     public ModelAndView contact() {
         ModelAndView mv = new ModelAndView("page");
 
-        mv.addObject("title", "Our contact");
+        mv.addObject("title", "Contact");
         mv.addObject("userClickContact", true);
 
         return mv;
