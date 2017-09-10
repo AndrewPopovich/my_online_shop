@@ -1,4 +1,4 @@
-package com.myshop.myonlineshop.com.myshop.myonlineshop.validator;
+package com.myshop.myonlineshop.validator;
 
 import com.myshop.shopbackend.dto.Product;
 import org.springframework.validation.Errors;

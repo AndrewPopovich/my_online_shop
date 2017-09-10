@@ -1,6 +1,6 @@
 package com.myshop.myonlineshop.controller;
 
-import com.myshop.myonlineshop.com.myshop.myonlineshop.validator.ProductValidator;
+import com.myshop.myonlineshop.validator.ProductValidator;
 import com.myshop.myonlineshop.util.FileUploadUtility;
 import com.myshop.shopbackend.dao.CategoryDAO;
 import com.myshop.shopbackend.dao.ProductDAO;
