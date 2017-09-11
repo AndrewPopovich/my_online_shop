@@ -1,6 +1,8 @@
 package com.myshop.myonlineshop.controller;
 
+import com.myshop.shopbackend.dao.CommentDAO;
 import com.myshop.shopbackend.dao.ProductDAO;
+import com.myshop.shopbackend.dto.Comment;
 import com.myshop.shopbackend.dto.Product;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,6 +23,9 @@ public class JsonDataController {
     @Autowired
     private ProductDAO productDAO;
 
+    @Autowired
+    private CommentDAO commentDAO;
+
     @RequestMapping("/all/products")
     @ResponseBody
     public List<Product> getAllProducts() {
@@ -40,5 +45,11 @@ public class JsonDataController {
     @ResponseBody
     public List<Product> getProductsByCategory(@PathVariable int id) {
         return productDAO.listActiveProductsByCategory(id);
+    }
+
+    @RequestMapping("/json/data/comments/{productId}/product")
+    @ResponseBody
+    public List<Comment> getCommentsForProduct(@PathVariable int productId) {
+        return commentDAO.listByProductId(productId);
     }
 }
