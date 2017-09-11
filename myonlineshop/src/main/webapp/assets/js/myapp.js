@@ -33,6 +33,26 @@ $(function () {
 
     }
 
+    var $tableComments = $('#comments');
+
+    if ($tableComments.length) {
+        var jsonUrl = window.contextRoot + '/json/data/comments/' + window.productId + '/product';
+
+        $tableComments.DataTable({
+        lengthMenu: [[10, 25, 50, -1], ['10 records', '25 records', '50 records', 'all']],
+        pageLength: 25,
+        ajax: {
+            url: jsonUrl,
+            dataSrc: ''
+        },
+            columns: [
+                {
+                    window.productId;
+                }
+            ]
+        })
+    }
+
     var $table = $('#productListTable');
 
     if ($table.length) {
