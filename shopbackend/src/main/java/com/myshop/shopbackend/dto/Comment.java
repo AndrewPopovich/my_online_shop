@@ -21,7 +21,7 @@ public class Comment {
     @Temporal(TemporalType.DATE)
     private Date date;
 
-    @NotBlank
+    @NotBlank(message = "Please, write your comment!")
     private String description;
 
     @Column(name = "file_reference")

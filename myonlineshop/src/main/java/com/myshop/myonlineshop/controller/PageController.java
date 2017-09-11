@@ -28,6 +28,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 import java.util.Date;
 
 @Controller
@@ -120,7 +121,6 @@ public class PageController {
         Comment comment = new Comment();
 
         comment.setProductId(id);
-        comment.setDate(new Date());
 
         if (user != null) {
             comment.setUserName(user.getFirstName() + " " + user.getLastName());
@@ -140,10 +140,19 @@ public class PageController {
     }
 
     @RequestMapping(value = "/comment/add", method = RequestMethod.POST)
-    public String addProductComment(@ModelAttribute("comment") Comment comment, BindingResult results, Model model) {
+    public String addProductComment(@Valid @ModelAttribute("comment") Comment comment, BindingResult results, Model model) {
         LOGGER.debug("In addProductComment!" + comment.getDescription());
 
-        commentDAO.add(comment);
+        if (comment.getDescription().equals("")) {
+            LOGGER.debug("Has error!");
+            model.addAttribute("userClickShowProduct", true);
+            model.addAttribute("title", productDAO.get(comment.getProductId()).getName());
+            model.addAttribute("message", "Please, write your comment!");
+            return "page";
+        } else {
+            comment.setDate(new Date());
+            commentDAO.add(comment);
+        }
 
         return "redirect:/show/" + comment.getProductId() + "/product";
     }

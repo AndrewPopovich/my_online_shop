@@ -3,6 +3,15 @@
 <%-- Breadcrumb --%>
     <div class="row">
 
+        <c:if test="${not empty message}">
+            <div class="col-xs-12">
+                <div class="alert alert-danger alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        ${message}
+                </div>
+            </div>
+        </c:if>
+
         <div class="col-xs-12">
 
             <ol class="breadcrumb">
