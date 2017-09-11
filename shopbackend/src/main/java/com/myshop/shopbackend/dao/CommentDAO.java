@@ -6,11 +6,11 @@ import java.util.List;
 
 public interface CommentDAO {
 
-    boolean add(Comment product);
+    boolean add(Comment comment);
 
-    boolean update(Comment product);
+    boolean update(Comment comment);
 
-    boolean delete(Comment product);
+    boolean delete(Comment comment);
 
     Comment get(int id);
 

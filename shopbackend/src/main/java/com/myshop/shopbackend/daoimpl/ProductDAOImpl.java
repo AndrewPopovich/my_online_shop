@@ -3,7 +3,6 @@ package com.myshop.shopbackend.daoimpl;
 import com.myshop.shopbackend.dao.ProductDAO;
 import com.myshop.shopbackend.dto.Product;
 import org.hibernate.SessionFactory;
-import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -41,7 +40,6 @@ public class ProductDAOImpl implements ProductDAO {
             e.printStackTrace();
         }
         return result;
-
     }
 
     @Override
@@ -80,12 +78,19 @@ public class ProductDAOImpl implements ProductDAO {
 
     @Override
     public List<Product> listActiveProducts() {
+        List<Product> result = null;
+
         String selectActiveProducts = "FROM Product WHERE active = :active";
 
-        Query query = sessionFactory.getCurrentSession().createQuery(selectActiveProducts, Product.class);
-        query.setParameter("active", true);
-
-        return query.getResultList();
+        try {
+            result = sessionFactory.getCurrentSession()
+                    .createQuery(selectActiveProducts, Product.class)
+                    .setParameter("active", true)
+                    .getResultList();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return result;
     }
 
     @Override
