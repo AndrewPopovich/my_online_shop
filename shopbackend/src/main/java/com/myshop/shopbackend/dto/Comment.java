@@ -21,14 +21,14 @@ public class Comment {
     @Temporal(TemporalType.DATE)
     private Date date;
 
-    @NotBlank(message = "Please enter your comment!")
+    @NotBlank
     private String description;
 
     @Column(name = "file_reference")
     private String fileReference;
 
-    @Column(name = "user_id")
-    private int userId;
+    @Column(name = "user_name")
+    private String userName;
 
     @Column(name = "product_id")
     private int productId;
@@ -65,12 +65,8 @@ public class Comment {
         this.fileReference = fileReference;
     }
 
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public String getUserName() {
+        return userName;
     }
 
     public int getProductId() {
@@ -88,7 +84,7 @@ public class Comment {
                 ", date=" + date +
                 ", description='" + description + '\'' +
                 ", fileReference='" + fileReference + '\'' +
-                ", userId=" + userId +
+                ", userName=" + userName +
                 ", productId=" + productId +
                 '}';
     }

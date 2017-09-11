@@ -92,9 +92,8 @@ CREATE TABLE comment (
   date DATE,
   description VARCHAR(255),
   product_id int,
-  user_id int,
+  user_name VARCHAR(50),
   file_reference VARCHAR(50),
   CONSTRAINT fk_comment_product_id FOREIGN KEY (product_id) REFERENCES product (id),
-  CONSTRAINT fk_comment_user_id FOREIGN KEY (user_id) REFERENCES user_detail (id),
   CONSTRAINT fk_comment_id PRIMARY KEY (id)
 );
