@@ -106,6 +106,7 @@
                         </security:authorize>
 
                         <a href="${contextRoot}/show/all/products" class="btn btn-primary">Back</a>
+                        <%@include file="./shared/writeComment.jsp" %>
                     </div>
                     <h2></h2>
                     <p class="product-description">${product.description}</p>
@@ -155,5 +156,3 @@
         </div>
     </center>
 </div>
-
-
