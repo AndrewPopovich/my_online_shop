@@ -86,3 +86,15 @@ CREATE TABLE cart_line (
     CONSTRAINT fk_cartline_product_id FOREIGN KEY (product_id) REFERENCES product (id),
     CONSTRAINT fk_cartline_id PRIMARY KEY (id)
 );
+
+CREATE TABLE comment (
+  id IDENTITY,
+  date DATE,
+  description VARCHAR(255),
+  product_id int,
+  user_id int,
+  file_reference VARCHAR(50),
+  CONSTRAINT fk_comment_product_id FOREIGN KEY (product_id) REFERENCES product (id),
+  CONSTRAINT fk_comment_user_id FOREIGN KEY (user_id) REFERENCES user_detail (id),
+  CONSTRAINT fk_comment_id PRIMARY KEY (id)
+);
