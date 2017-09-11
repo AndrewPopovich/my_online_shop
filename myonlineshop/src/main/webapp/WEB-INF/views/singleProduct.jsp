@@ -112,7 +112,9 @@
                 </div>
             </div>
         </div>
+
     </div>
+
 
     <center>
         <div class="modal fade" id="bigImg" role="img" tabindex="-1">
@@ -153,3 +155,6 @@
         </div>
     </center>
 </div>
+    <br/>
+    <%@include file="./shared/uiComments.jsp" %>
+
