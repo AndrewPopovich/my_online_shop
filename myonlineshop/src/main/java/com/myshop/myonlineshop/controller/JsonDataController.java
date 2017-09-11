@@ -47,7 +47,7 @@ public class JsonDataController {
         return productDAO.listActiveProductsByCategory(id);
     }
 
-    @RequestMapping("/json/data/comments/{productId}/product")
+    @RequestMapping("/comments/{productId}/product")
     @ResponseBody
     public List<Comment> getCommentsForProduct(@PathVariable int productId) {
         return commentDAO.listByProductId(productId);
