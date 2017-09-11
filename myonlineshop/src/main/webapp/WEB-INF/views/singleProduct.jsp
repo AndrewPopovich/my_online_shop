@@ -155,6 +155,5 @@
         </div>
     </center>
 </div>
-    <br/>
-    <%@include file="./shared/uiComments.jsp" %>
+
 
