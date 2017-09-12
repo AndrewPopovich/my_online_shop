@@ -12,6 +12,10 @@
             </div>
         </c:if>
 
+        <script>
+            window.productId = '${product.id}';
+        </script>
+
         <div class="col-xs-12">
 
             <ol class="breadcrumb">
@@ -119,12 +123,16 @@
                     </div>
                     <h2></h2>
                     <p class="product-description">${product.description}</p>
+
                 </div>
             </div>
         </div>
 
     </div>
+    <br/>
+    <table id="commentsTable" class="table table-striped table-bordered">
 
+    </table>
 
     <center>
         <div class="modal fade" id="bigImg" role="img" tabindex="-1">

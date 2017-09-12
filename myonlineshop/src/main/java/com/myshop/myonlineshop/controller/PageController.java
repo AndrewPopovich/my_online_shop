@@ -112,7 +112,8 @@ public class PageController {
     }
 
     @RequestMapping(value = "/show/{id}/product")
-    public ModelAndView showSingleProduct(@PathVariable(value = "id") int id) throws ProductNotFoundException {
+    public ModelAndView showSingleProduct(@PathVariable(value = "id") int id,
+                                          @RequestParam(name = "operation", required = false) String operation) throws ProductNotFoundException {
         ModelAndView mv = new ModelAndView("page");
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -131,6 +132,10 @@ public class PageController {
         product.setViews(product.getViews() + 1);
         productDAO.update(product);
 
+        if (operation != null) {
+            mv.addObject("message", "Please, write your comment!");
+        }
+
         mv.addObject("title", product.getName());
         mv.addObject("product", product);
         mv.addObject("comment", comment);
@@ -145,10 +150,8 @@ public class PageController {
 
         if (comment.getDescription().equals("")) {
             LOGGER.debug("Has error!");
-            model.addAttribute("userClickShowProduct", true);
-            model.addAttribute("title", productDAO.get(comment.getProductId()).getName());
-            model.addAttribute("message", "Please, write your comment!");
-            return "page";
+
+            return "redirect:/show/" + comment.getProductId() + "/product?operation=empty";
         } else {
             comment.setDate(new Date());
             commentDAO.add(comment);

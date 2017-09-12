@@ -34,6 +34,7 @@ $(function () {
     }
 
 
+
     var $table = $('#productListTable');
 
     if ($table.length) {
@@ -367,4 +368,23 @@ $(function () {
         ratingsField.val(value);
       });
     });
+
+    var $commentsTable = $('#commentsTable')
+
+        if ($commentsTable.length) {
+            var jsonUrl = window.contextRoot + '/json/data/comments/' + window.productId + '/product';
+
+                $commentsTable.DataTable({
+                    ajax: {
+                        url: jsonUrl,
+                        dataSrc: ''
+                    },
+                    columns: [
+                        {
+                            data: 'description'
+                        }
+                    ]
+
+                });
+        }
 });
