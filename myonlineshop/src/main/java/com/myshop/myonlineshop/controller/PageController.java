@@ -147,17 +147,18 @@ public class PageController {
     @RequestMapping(value = "/comment/add", method = RequestMethod.POST)
     public String addProductComment(@Valid @ModelAttribute("comment") Comment comment, BindingResult results, Model model) {
         LOGGER.debug("In addProductComment!" + comment.getDescription());
+        String redirect = "redirect:/show/" + comment.getProductId() + "/product";
 
         if (comment.getDescription().equals("")) {
             LOGGER.debug("Has error!");
 
-            return "redirect:/show/" + comment.getProductId() + "/product?operation=empty";
+            redirect += "?operation=empty";
         } else {
             comment.setDate(new Date());
             commentDAO.add(comment);
         }
 
-        return "redirect:/show/" + comment.getProductId() + "/product";
+        return redirect;
     }
 
     @RequestMapping(value = "/login")

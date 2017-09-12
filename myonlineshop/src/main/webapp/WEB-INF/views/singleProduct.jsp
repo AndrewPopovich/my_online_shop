@@ -119,7 +119,11 @@
                         </security:authorize>
 
                         <a href="${contextRoot}/show/all/products" class="btn btn-primary">Back</a>
+
+                        <security:authorize access="hasAuthority('USER')">
                         <%@include file="./shared/writeComment.jsp" %>
+                        </security:authorize>
+
                     </div>
                     <h2></h2>
                     <p class="product-description">${product.description}</p>
