@@ -1,8 +1,9 @@
+<%@taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
+
 <div class="container">
 
 <%-- Breadcrumb --%>
     <div class="row">
-
         <c:if test="${not empty message}">
             <div class="col-xs-12">
                 <div class="alert alert-danger alert-dismissible">
@@ -11,21 +12,16 @@
                 </div>
             </div>
         </c:if>
-
         <script>
             window.productId = '${product.id}';
         </script>
-
         <div class="col-xs-12">
-
             <ol class="breadcrumb">
                 <li><a href="${contextRoot}/home">Home</a></li>
                 <li><a href="${contextRoot}/show/all/products">All products</a></li>
                 <li class="active">${product.name}</li>
             </ol>
-
         </div>
-
     </div>
 
     <div class="card">
@@ -127,13 +123,14 @@
                     </div>
                     <h2></h2>
                     <p class="product-description">${product.description}</p>
-
                 </div>
             </div>
         </div>
-
     </div>
     <br/>
+    <security:authorize access="hasAuthority('ADMIN')">
+        <input id="isRoleAdmin" type="text" class="hide" value="true"/>
+    </security:authorize>
     <table id="commentsTable" class="table table-striped table-bordered">
 
     </table>

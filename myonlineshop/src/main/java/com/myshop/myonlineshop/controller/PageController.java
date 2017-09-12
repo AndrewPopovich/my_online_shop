@@ -161,6 +161,19 @@ public class PageController {
         return redirect;
     }
 
+    @RequestMapping(value = "/comment/{commentId}/delete")
+    public String deleteComment(@PathVariable int commentId) {
+        LOGGER.debug("In deleteComment!");
+
+        Comment comment = commentDAO.get(commentId);
+
+
+        String redirect = "redirect:/show/" + comment.getProductId() + "/product";
+        LOGGER.debug("Delete comment " + commentDAO.delete(comment));
+
+        return redirect;
+    }
+
     @RequestMapping(value = "/login")
     public ModelAndView login(@RequestParam(name = "error", required = false) String error) {
         ModelAndView mv = new ModelAndView("page");

@@ -369,58 +369,57 @@ $(function () {
       });
     });
 
-    var $commentsTable = $('#commentsTable')
+    var $commentsTable = $('#commentsTable');
+    var isRoleAdmin = $('#isRoleAdmin').val();
 
-        if ($commentsTable.length) {
-            var jsonUrl = window.contextRoot + '/json/data/comments/' + window.productId + '/product';
+    if ($commentsTable.length) {
+        var jsonUrl = window.contextRoot + '/json/data/comments/' + window.productId + '/product';
 
-            $commentsTable.DataTable({
-                lengthMenu: false,
-                searchMenu: false,
-                pageLength: 25,
-                ajax: {
-                    url: jsonUrl,
-                    dataSrc: ''
-                },
-                columns: [
-                    {
-                        data: 'date',
-                        bSortable: false,
-                        mRender: function (data, type, row) {
-                            var str = '';
+        $commentsTable.DataTable({
+            lengthMenu: false,
+            searchMenu: false,
+            pageLength: 25,
+            ajax: {
+                url: jsonUrl,
+                dataSrc: ''
+            },
+            columns: [
+                {
+                    data: 'id',
+                    bSortable: false,
+                    mRender: function (data, type, row) {
+                        var str = '';
 
-                            str += '<li class="media">';
-                            str += '<a class="pull-left">';
-                            str += '<img class="media-object img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/kurafire/128.jpg" alt="profile">';
-                            str += '</a>';
-                            str += '<div class="media-body">';
-                            str += '<div class="well well-lg">';
-                            str += '<h4 class="media-heading text-uppercase reviews">' + row.userName + '</h4>';
-                            str += '<ul class="media-date text-uppercase reviews list-inline">';
-                            str += '<li class="dd">When: ' + row.date + '</li>';
-                            str += '</ul>';
-                            str += '<p class="media-comment">';
-                            str += '<h4>' + row.description + '</h4>';
-                            str += '</p>';
-                            str += '<security:authorize access="hasAuthority(\'ADMIN\')">';
-                            str += '<a class="btn btn-danger btn-sm text-uppercase" href="" id="delete"><span class="glyphicon glyphicon-trash"></span> Delete</a>';
-                            str += '</security:authorize>';
-                            if (row.fileReference != '') {
-                                str += '<div class="embed-responsive embed-responsive-16by9">';
-                                str += '<iframe class="embed-responsive-item" src="" allowfullscreen></iframe>';
-                                str += '</div>';
-                            }
-                            str += '</div>';
-                            str += '</div>';
-                            str += '</li>';
-
-                            return str;
+                        str += '<li class="media">';
+                        str += '<h4 class="media-heading reviews"><b>' + row.userName + '</b></h4>';
+                        str += '<a class="pull-left">';
+                        str += '<img class="media-object img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/kurafire/128.jpg" alt="profile"/>';
+                        str += '</a>';
+                        str += '<div class="media-body">';
+                        str += '<div class="well well-lg">';
+                        str += '<h4>' + row.description + '</h4>';
+                        str += '<li class="dd"><h5>' + row.date + '</h5></li>';
+                        str += '<ul class="media-date reviews list-inline">';
+                        str += '</ul>';
+                        str += '<p class="media-comment">';
+                        str += '</p>';
+                        if (isRoleAdmin){
+                            str += '<a href="' + window.contextRoot + '/comment/' + data + '/delete" class="btn btn-danger btn-sm text-uppercase" ><span class="glyphicon glyphicon-trash"></span> Delete</a>';
                         }
+                        if (row.fileReference != '') {
+                            str += '<div class="embed-responsive embed-responsive-16by9">';
+                            str += '<iframe class="embed-responsive-item" src="' + row.fileReference + '" allowfullscreen></iframe>';
+                            str += '</div>';
+                        }
+                        str += '</div>';
+                        str += '</div>';
+                        str += '</li>';
+
+                        return str;
                     }
-                ]
+                }
+            ]
 
-            });
-        }
-
-
+        });
+    }
 });
