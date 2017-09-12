@@ -14,8 +14,12 @@
                         <sf:errors path="description" cssClass="help-block" element="em"/>
 
                         <br/>
-                        <sf:input type="text" path="fileReference" id="fileReference" placeholder="Enter reference to your file..."
-                                                                  class="form-control"/>
+                        <div class="input-group">
+                              <div class="input-group-addon">http://</div>
+                              <sf:input type="text" class="form-control" path="fileReference" id="fileReference"
+                              placeholder="Enter your file reference..."/>
+                            </div>
+
                         <div class="text-right">
                             <div class="stars starrr" data-rating="0"></div>
                             <a class="btn btn-danger btn-sm" href="#" id="close-review-box" style="display:none; margin-right: 10px;">

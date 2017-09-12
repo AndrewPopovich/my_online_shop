@@ -381,7 +381,7 @@ $(function () {
                     },
                     columns: [
                         {
-                            data: 'description'
+                            data: 'date'
                         }
                     ]
 
